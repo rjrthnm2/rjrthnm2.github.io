@@ -20,8 +20,9 @@ main:
   # - title: "Blog Posts"
   #   url: /year-archive/
     
-  - title: "CV"
-    url: /cv/
+  - title: "Resume"
+    url: /files/ROBIN_Resume_ML.pdf 
+    # url: /cv/
     
   # - title: "Guide"
   #   url: /markdown/

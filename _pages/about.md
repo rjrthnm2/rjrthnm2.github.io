@@ -7,7 +7,11 @@ redirect_from:
   - /about.html
 ---
 
-I'm a Ph.D. candidate in the department of Curriculum and Instruction, DELTA program at the University of Illinois Urbana-Champaign. I'm currently working with my advisor [Dr. Emma Mercier](https://education.illinois.edu/faculty/emma-mercier) and co-advised by [Dr. Jina Kang](https://education.illinois.edu/faculty/jina-kang). My background is in mechanical engineering and education. My research interests broadly focus on collaborative learning in engineering classroom contexts. I am deeply immersed in exploring the frontiers of collaborative learning and multi-modal learning analytics. My journey from engineering to curriculum instruction was sparked by the challenges I observed in discussion classrooms during my teaching assistantship. The engineer in me was drawn to solving the intricate problems of educational dynamics, particularly how discussions unfold in engineering settings. This curiosity led me to cross paths with my current advisor, who was investigating these very issues, marking the beginning of my transition and setting the stage for my research in educational innovation.
+I'm a Ph.D. candidate in the department of Curriculum and Instruction, DELTA program at the University of Illinois Urbana-Champaign. I'm currently working with my advisor [Dr. Emma Mercier](https://education.illinois.edu/faculty/emma-mercier) and co-advised by [Dr. Jina Kang](https://education.illinois.edu/faculty/jina-kang). 
+
+Background
+======
+My background is in mechanical engineering and education. My research interests broadly focus on collaborative learning in engineering classroom contexts. I am deeply immersed in exploring the frontiers of collaborative learning and multi-modal learning analytics. My journey from engineering to curriculum instruction was sparked by the challenges I observed in discussion classrooms during my teaching assistantship. The engineer in me was drawn to solving the intricate problems of educational dynamics, particularly how discussions unfold in engineering settings. This curiosity led me to cross paths with my current advisor, who was investigating these very issues, marking the beginning of my transition and setting the stage for my research in educational innovation.
 
 Transitioning from Mechanical Engineering to Curriculum and Instruction, I have been fascinated by the mechanics of learning environments and the potential of analytics to transform educational experiences. This interdisciplinary approach has enabled me to lead and contribute to groundbreaking projects such as [CSTEPS (Collaborative Sketch Tools for Engineering Problem Solving)](https://www.colearnlab.org/csteps), [CEASAR (Connections of Earth and Sky with Augmented Reality)](https://emit.education.illinois.edu/projects/ceasar), and HoloOrbits.
 
@@ -25,4 +29,4 @@ My research primarily focuses on understanding the dynamics of small group learn
 
 Contact
 ------
-I am always open to discussing potential collaborations, sharing insights, or exploring new research opportunities. Feel free to connect with me via [email ](rjrthnm2@illinois.edu).
+I am always open to discussing potential collaborations, sharing insights, or exploring new research opportunities. Feel free to connect with me via [email](mailto:rjrthnm2@illinois.edu).

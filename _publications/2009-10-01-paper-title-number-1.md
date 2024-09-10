@@ -1,14 +1,14 @@
 ---
-title: "Paper Title Number 1"
+title: "Enhancing Multimodal Learning Analytics: A Comparative Study of Facial Features Captured Using Traditional vs 360-Degree Cameras in Collaborative Learning"
 collection: publications
-category: manuscripts
-permalink: /publication/2009-10-01-paper-title-number-1
-excerpt: 'This paper is about the number 1. The number 2 is left for future work.'
-date: 2009-10-01
-venue: 'Journal 1'
-slidesurl: 'http://academicpages.github.io/files/slides1.pdf'
-paperurl: 'http://academicpages.github.io/files/paper1.pdf'
-citation: 'Your Name, You. (2009). &quot;Paper Title Number 1.&quot; <i>Journal 1</i>. 1(1).'
+category: conferences
+permalink: /publication/2024-07-01-conferences-360CameraFacialFeatures-number-1
+excerpt: 'Multimodal Learning Analytics (MMLA) has emerged as a powerful approach within the computer-supported collaborative learning community, offering nuanced insights into learning processes through diverse data sources. Despite its potential, the prevalent reliance on traditional instruments such as tripod-mounted digital cameras for video capture often results in sub optimal data quality for facial expressions captured, which is crucial for understanding collaborative dynamics. This study introduces an innovative approach to overcome this limitation by employing 360-degree camera technology to capture students’ facial features while collaborating in small working groups. A comparative analysis of 1.5 hours of video data from both traditional tripod-mounted digital cameras and 360-degree cameras evaluated the efficacy of these methods in capturing Facial Action Units (AU) and facial keypoints. The use of OpenFace revealed that the 360-degree camera captured high-quality facial features in 33.17% of frames, significantly outperforming the traditional method’s 8.34%, thereby enhancing reliability in facial feature detection. The findings suggest a pathway for future research to integrate 360-degree camera technology in MMLA. Future research directions involve refining this technology further to improve the detection of affective states in collaborative learning environments, thereby offering a richer understanding of the learning process.'
+date: 2024-07-01
+venue: 'Proceedings of the 17th International Conference on Educational Data Mining'
+# slidesurl: 'http://academicpages.github.io/files/slides1.pdf'
+paperurl: 'https://educationaldatamining.org/edm2024/proceedings/2024.EDM-short-papers.56/index.html'
+citation: 'R. J. Rajarathinam, C. Palaguachi, and J. Kang, ‘Enhancing Multimodal Learning Analytics: A Comparative Study of Facial Features Captured Using Traditional vs 360-Degree Cameras in Collaborative Learning’, in Proceedings of the 17th International Conference on Educational Data Mining, 2024, pp. 551–558.'
 ---
 
 The contents above will be part of a list of publications, if the user clicks the link for the publication than the contents of section will be rendered as a full page, allowing you to provide more information about the paper for the reader. When publications are displayed as a single page, the contents of the above "citation" field will automatically be included below this section in a smaller font.

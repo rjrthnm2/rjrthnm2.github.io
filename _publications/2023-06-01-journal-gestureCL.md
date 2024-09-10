@@ -1,0 +1,13 @@
+---
+title: "Gesture-mediated collaboration with augmented reality headsets in a problem-based astronomy task"
+collection: publications
+category: manuscripts
+permalink: /publication/2023-06-01-journal-gestureCL
+excerpt: 'Extended reality technologies such as headset-based augmented reality (AR) unlock unique opportunities to integrate gestures into the collaborative problem-solving process. The following qualitative study documents the collection and analysis of group interaction data in an astronomy sky simulation across AR and tablet technologies in a classroom setting. A total of 15 groups were coded for episodes of on-task problem-solving, conceptual engagement, and use of gesture. Analysis of coded interactions assisted in identifying vignettes facilitating exploration, orientation, perspective sharing, and communication of mental models. In addition, the use of gesture by some groups enabled the creation of shared situated conceptual spaces, bridging the AR and tablet experiences and facilitating collaborative exchange of spatial information. The patterns of gesture and collaborative knowledge interactions documented here have implications for the design of future collaborative learning environments leveraging extended reality technologies.'
+date: 2023-06-01
+venue: 'International Journal of Computer-Supported Collaborative Learning'
+paperurl: 'http://academicpages.github.io/files/paper3.pdf'
+citation: 'J. Planey, R. J. Rajarathinam, E. Mercier, and R. Lindgren, ‘Gesture-mediated collaboration with augmented reality headsets in a problem-based astronomy task’, International Journal of Computer-Supported Collaborative Learning, vol. 18, no. 2, pp. 259–289, Jun. 2023.'
+---
+
+Extended reality technologies such as headset-based augmented reality (AR) unlock unique opportunities to integrate gestures into the collaborative problem-solving process. The following qualitative study documents the collection and analysis of group interaction data in an astronomy sky simulation across AR and tablet technologies in a classroom setting. A total of 15 groups were coded for episodes of on-task problem-solving, conceptual engagement, and use of gesture. Analysis of coded interactions assisted in identifying vignettes facilitating exploration, orientation, perspective sharing, and communication of mental models. In addition, the use of gesture by some groups enabled the creation of shared situated conceptual spaces, bridging the AR and tablet experiences and facilitating collaborative exchange of spatial information. The patterns of gesture and collaborative knowledge interactions documented here have implications for the design of future collaborative learning environments leveraging extended reality technologies.

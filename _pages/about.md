@@ -27,6 +27,12 @@ Research vision
 
 My research primarily focuses on understanding the dynamics of small group learning, with an emphasis on how multi-modal learning analytics can be leveraged to optimize collaboration and educational outcomes. Looking ahead, I am eager to further explore the integration of engineering principles in educational research, with the ultimate goal of devising innovative solutions that can address the challenges of modern learning environments. I am committed to contributing to a future where technology and education converge to create more engaging, effective, and accessible learning experiences for all.
 
+CV
+------
+You can find my CV [here](/files/ROBIN_CV.pdf).
+
 Contact
 ------
 I am always open to discussing potential collaborations, sharing insights, or exploring new research opportunities. Feel free to connect with me via [email](mailto:rjrthnm2@illinois.edu).
+
+

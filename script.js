@@ -93,30 +93,6 @@
   const yearEl = $('#year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* ---------- CURSOR ---------- */
-  const cursor = document.createElement('div');
-  cursor.className = 'cursor'; cursor.setAttribute('aria-hidden','true');
-  const dot = document.createElement('div');
-  dot.className = 'cursor-dot'; dot.setAttribute('aria-hidden','true');
-  document.body.appendChild(cursor); document.body.appendChild(dot);
-  let cx = innerWidth/2, cy = innerHeight/2, tx = cx, ty = cy;
-  document.addEventListener('mousemove', (e) => {
-    tx = e.clientX; ty = e.clientY;
-    dot.style.left = tx + 'px'; dot.style.top = ty + 'px';
-  });
-  (function loop(){
-    cx = lerp(cx, tx, 0.18); cy = lerp(cy, ty, 0.18);
-    cursor.style.left = cx + 'px'; cursor.style.top = cy + 'px';
-    requestAnimationFrame(loop);
-  })();
-  // delegate hover
-  document.addEventListener('mouseover', (e) => {
-    if (e.target.closest('a, button, [data-hover]')) cursor.classList.add('is-hover');
-  });
-  document.addEventListener('mouseout', (e) => {
-    if (e.target.closest('a, button, [data-hover]')) cursor.classList.remove('is-hover');
-  });
-
   /* ---------- NAV STUCK ---------- */
   const navEl = $('#nav');
   if (navEl) {

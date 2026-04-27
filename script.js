@@ -24,22 +24,43 @@
     <img class="logo-light" src="assets/logo-tc.png" alt="">
   </a>
   <nav class="nav__links" aria-label="Primary">
-    <a href="index.html"     data-page="home">Home<i></i></a>
-    <a href="work.html"      data-page="work">Work<i></i></a>
-    <a href="writing.html"   data-page="writing">Writing<i></i></a>
-    <a href="cv.html"        data-page="cv">CV<i></i></a>
-    <a href="contact.html"   data-page="contact">Contact<i></i></a>
+    <a href="index.html"          data-page="home">Home<i></i></a>
+    <a href="publications.html"   data-page="publications">Publications<i></i></a>
+    <a href="cv.html"             data-page="cv">CV<i></i></a>
+    <a href="contact.html"        data-page="contact">Contact<i></i></a>
   </nav>
   <div class="nav__meta">
     <span class="nav__time" id="navTime">—</span>
     <span class="nav__dot" aria-hidden="true"></span>
     <span class="nav__loc">Urbana, IL</span>
+    <button class="nav__toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>`;
     // mark current
     $$('.nav__links a').forEach(a => {
       if (a.dataset.page === currentPage) a.classList.add('is-current');
     });
+    // hamburger toggle
+    const navEl_ = document.getElementById('nav');
+    const toggle = navEl_?.querySelector('.nav__toggle');
+    if (toggle && navEl_) {
+      const closeMenu = () => {
+        navEl_.classList.remove('is-menu-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('no-scroll');
+      };
+      toggle.addEventListener('click', () => {
+        const open = navEl_.classList.toggle('is-menu-open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        document.body.classList.toggle('no-scroll', open);
+      });
+      // close when a nav link is tapped
+      $$('.nav__links a').forEach(a => a.addEventListener('click', closeMenu));
+      // close on Escape
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+    }
   }
 
   if (footMount) {
@@ -54,26 +75,20 @@
       <div>
         <span class="t-meta">Site</span>
         <a href="index.html">Home</a>
-        <a href="work.html">Work</a>
-        <a href="writing.html">Writing</a>
+        <a href="publications.html">Publications</a>
         <a href="cv.html">CV</a>
         <a href="contact.html">Contact</a>
       </div>
       <div>
         <span class="t-meta">Elsewhere</span>
         <a href="https://www.linkedin.com/in/robin-jephthah-rajarathinam/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://rjrthnm2.github.io" target="_blank" rel="noopener">GitHub Pages</a>
+        <a href="https://scholar.google.com/citations?user=4ky-x60AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
         <a href="mailto:robinzjephthah@gmail.com">Email</a>
-      </div>
-      <div>
-        <span class="t-meta">© <span id="year">2026</span></span>
-        <span>R. J. Rajarathinam</span>
-        <span>All rights reserved</span>
       </div>
     </div>
     <div class="footer__bot">
-      <span>Last updated April 2026</span>
-      <span>Made in Urbana, IL · 40.1106° N, 88.2073° W</span>
+      <span>&copy; <span id="year">2026</span> R. J. Rajarathinam</span>
+      <span>All rights reserved</span>
     </div>
   </div>
 </footer>`;
@@ -172,34 +187,6 @@
       yearSpans.forEach(s => s.classList.toggle('is-on', s.dataset.year === active));
     };
     window.addEventListener('scroll', onTl, { passive: true });
-  }
-
-  /* ---------- WORK RAIL ---------- */
-  const rail = $('#workRail');
-  const railProgress = $('#workProgress');
-  if (rail) {
-    let isDown = false, startX = 0, startScroll = 0;
-    rail.addEventListener('mousedown', (e) => { isDown = true; rail.classList.add('is-grabbing'); startX = e.pageX; startScroll = rail.scrollLeft; });
-    document.addEventListener('mouseup', () => { isDown = false; rail.classList.remove('is-grabbing'); });
-    document.addEventListener('mousemove', (e) => {
-      if (!isDown) return; e.preventDefault();
-      rail.scrollLeft = startScroll - (e.pageX - startX) * 1.2;
-    });
-    rail.addEventListener('wheel', (e) => {
-      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-        const max = rail.scrollWidth - rail.clientWidth;
-        const at0 = rail.scrollLeft <= 0 && e.deltaY < 0;
-        const atE = rail.scrollLeft >= max - 1 && e.deltaY > 0;
-        if (!at0 && !atE) { rail.scrollLeft += e.deltaY; e.preventDefault(); }
-      }
-    }, { passive: false });
-    const updateRail = () => {
-      const max = rail.scrollWidth - rail.clientWidth;
-      const p = max > 0 ? rail.scrollLeft / max : 0;
-      if (railProgress) railProgress.style.width = (p * 92 + 8) + '%';
-    };
-    rail.addEventListener('scroll', updateRail, { passive: true });
-    updateRail();
   }
 
   /* ---------- PHILOSOPHY ---------- */

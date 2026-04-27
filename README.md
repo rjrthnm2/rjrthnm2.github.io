@@ -8,13 +8,12 @@ Live at <https://rjrthnm2.github.io>.
 A static, multi-page portfolio. No framework, no build step, no Jekyll —
 just hand-written HTML, CSS, and JavaScript served directly by GitHub Pages.
 
-| Page            | File            | What's on it                                                  |
-| --------------- | --------------- | ------------------------------------------------------------- |
-| Home / About    | `index.html`    | Hero with portrait, intro, "where to next" cards              |
-| Selected work   | `work.html`     | Horizontally-draggable rail of five projects                  |
-| Writing         | `writing.html`  | Filterable publications list (journal / conference / chapter) |
-| CV              | `cv.html`       | Education + appointments timeline, teaching/service grid, PDF |
-| Contact         | `contact.html`  | Big mailto, affiliations, links                               |
+| Page            | File                  | What's on it                                                  |
+| --------------- | --------------------- | ------------------------------------------------------------- |
+| Home / About    | `index.html`          | Hero with portrait, intro, "where to next" cards              |
+| Publications    | `publications.html`   | Filterable papers list (journal / conference / chapter)       |
+| CV              | `cv.html`             | Education + appointments timeline, teaching/service grid, PDF |
+| Contact         | `contact.html`        | Big mailto, affiliations, links                               |
 
 Shared chrome — top nav with live Central-Time clock, footer, animated
 cursor — is injected by `script.js`, so each page only contains its own
@@ -23,7 +22,7 @@ content.
 ## Repo layout
 
 ```
-index.html    work.html    writing.html    cv.html    contact.html
+index.html    publications.html    cv.html    contact.html
 styles.css    script.js
 .nojekyll                      tells GitHub Pages to skip Jekyll
 assets/

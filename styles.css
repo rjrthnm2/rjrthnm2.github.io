@@ -903,16 +903,15 @@ ul, ol { list-style: none; }
   transition: transform .4s var(--ease-out);
   z-index: -1;
 }
-.pub:hover { padding-left: 18px; padding-right: 18px; color: #fff; }
+.pub:hover { padding-left: 18px; padding-right: 18px; color: var(--brand-navy); }
 .pub:hover::before { transform: scaleY(1); transform-origin: top; }
 .pub:hover .pub__num,
 .pub:hover h4,
 .pub:hover p,
 .pub:hover .pub__venue,
-.pub:hover .pub__arrow { color: #fff; }
-.pub:hover h4 { color: var(--brand-gold); }
-.pub:hover p em { color: var(--brand-gold); }
-.pub:hover .pub__arrow { transform: translate(6px, -6px); color: var(--brand-gold); }
+.pub:hover .pub__arrow { color: var(--brand-navy); }
+.pub:hover p em { color: var(--brand-tc); }
+.pub:hover .pub__arrow { transform: translate(6px, -6px); color: var(--brand-tc); }
 .pub__num {
   font-family: var(--font-mono);
   font-size: 13px; color: var(--gray-700);

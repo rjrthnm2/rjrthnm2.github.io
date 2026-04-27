@@ -107,31 +107,6 @@ ul, ol { list-style: none; }
   transition: right .15s linear;
 }
 
-/* ============= CURSOR ============= */
-.cursor, .cursor-dot {
-  position: fixed; pointer-events: none; z-index: 150;
-  border-radius: 50%; transform: translate(-50%, -50%);
-  mix-blend-mode: difference;
-}
-.cursor {
-  width: 32px; height: 32px;
-  border: 1.4px solid #fff;
-  transition: width .25s var(--ease-out), height .25s var(--ease-out), background .25s var(--ease-out), border-color .25s var(--ease-out);
-}
-.cursor.is-hover {
-  width: 64px; height: 64px;
-  background: var(--brand-gold);
-  border-color: var(--brand-gold);
-  mix-blend-mode: normal;
-}
-.cursor-dot {
-  width: 5px; height: 5px;
-  background: #fff;
-}
-@media (hover: none), (pointer: coarse) {
-  .cursor, .cursor-dot { display: none; }
-}
-
 /* ============= NAV ============= */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -906,10 +881,9 @@ ul, ol { list-style: none; }
 .pub:hover { padding-left: 18px; padding-right: 18px; color: var(--brand-navy); }
 .pub:hover::before { transform: scaleY(1); transform-origin: top; }
 .pub:hover .pub__num,
-.pub:hover h4,
 .pub:hover p,
-.pub:hover .pub__venue,
-.pub:hover .pub__arrow { color: var(--brand-navy); }
+.pub:hover .pub__venue { color: var(--brand-navy); }
+.pub:hover h4 { color: var(--brand-gold); }
 .pub:hover p em { color: var(--brand-tc); }
 .pub:hover .pub__arrow { transform: translate(6px, -6px); color: var(--brand-tc); }
 .pub__num {

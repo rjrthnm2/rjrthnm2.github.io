@@ -21,7 +21,7 @@
 <header class="nav ${isHome ? '' : 'nav--light'}" id="nav">
   <a class="nav__logo" href="index.html" aria-label="Robin Jephthah — home">
     <img class="logo-dark" src="assets/logo-white.png" alt="Robin Jephthah Rajarathinam">
-    <img class="logo-light" src="assets/logo-navy.png" alt="">
+    <img class="logo-light" src="assets/logo-tc.png" alt="">
   </a>
   <nav class="nav__links" aria-label="Primary">
     <a href="index.html"     data-page="home">Home<i></i></a>

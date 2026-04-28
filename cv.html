@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Mulish:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=7" />
+<link rel="stylesheet" href="styles.css?v=10" />
 <link rel="icon" href="assets/favicon/favicon.ico" />
 <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#001B3D" />
 <meta name="msapplication-config" content="assets/favicon/browserconfig.xml" />
@@ -19,32 +19,187 @@
 <main class="page">
   <header class="page__header">
     <div class="page__header-top"><span>— 02 / CV</span><a href="index.html">← Home</a></div>
-    <h1 class="page__title"><span>A career, on a</span><span><i>single</i> page.</span></h1>
-    <p class="page__lede">Twelve years of asking the same question.</p>
+    <h1 class="page__title"><span>The career</span><span><i>journey.</i></span></h1>
+    <p class="page__lede">Twelve years in a single page.</p>
   </header>
 
   <section class="cv">
-    <div class="cv__timeline">
-      <div class="tl">
-        <div class="tl__col tl__col--years">
-          <span data-year="2025">2025</span><span data-year="2024">2024</span><span data-year="2023">2023</span><span data-year="2022">2022</span><span data-year="2021">2021</span><span data-year="2020">2020</span><span data-year="2019">2019</span><span data-year="2018">2018</span><span data-year="2017">2017</span><span data-year="2016">2016</span><span data-year="2013">2013</span>
+    <h2 class="cv__section-h">Experience</h2>
+    <ol class="exp-list">
+
+      <li class="exp">
+        <div class="exp__period">Dec 2025 — Present</div>
+        <div class="exp__body">
+          <h3 class="exp__org">Radicality Ministries</h3>
+          <p class="exp__role">Curriculum Development &amp; AI Researcher</p>
+          <p class="exp__meta">
+            <span class="exp__loc">Illinois, US</span>
+            <span class="exp__pi"><span class="exp__pi-label">Lead</span><em>Tamara Rowe</em></span>
+          </p>
+          <ul class="exp__bullets">
+            <li>Designed and developed <strong>Intimacy with God: 90-Day Teen Journal</strong>, a 188-page devotional workbook for young adults — architecting daily content progression around evidence-based instructional design and producing all interior layouts, typography, and front/back cover artwork in Canva.</li>
+            <li>Revamped the Radicality Ministries Squarespace site by unifying design, typography, and color systems across all pages and shipping SEO improvements that drove a 10% increase in site impressions in the first month; iterating on structured user feedback collected from newcomers, churchgoers, and donors.</li>
+            <li>Prompt-engineered LLMs (Claude, Canva AI) to automate curriculum and content generation; configured Claude Cowork scheduled tasks to streamline recurring production workflows across the ministry's educational pipeline.</li>
+          </ul>
         </div>
-        <ol class="tl__list">
-          <li class="tl__item" data-year-bind="2025"><span class="tl__year">2025 — present</span><span class="tl__role">Curriculum Development &amp; AI Researcher</span><span class="tl__org">Radicality Ministries · Tamara Rowe</span><p>Designed a 188-page devotional workbook end-to-end and rebuilt the ministry's web presence; piloting LLM-driven curriculum and content automations.</p></li>
-          <li class="tl__item" data-year-bind="2025"><span class="tl__year">Summer 2025</span><span class="tl__role">Ph.D., Curriculum &amp; Instruction</span><span class="tl__org">University of Illinois Urbana-Champaign</span><p>"Ranking features used in modeling student collaboration using multimodal learning analytics" — Mercier &amp; Kang, advisors.</p></li>
-          <li class="tl__item" data-year-bind="2024"><span class="tl__year">2023 — 2025</span><span class="tl__role">Doctoral researcher · CSTEPS &amp; HoloOrbits</span><span class="tl__org">Dept. of Curriculum &amp; Instruction, UIUC</span><p>Multimodal learning analytics; spatial pedagogy via fisheye + OpenPose; LLaVA-driven gesture coding; Phi-3 fine-tuning to replicate a GPT-4o tutor.</p></li>
-          <li class="tl__item" data-year-bind="2023"><span class="tl__year">2022 — 2024</span><span class="tl__role">Researcher · CEASAR</span><span class="tl__org">Embodied Mathematics Imagination &amp; Technology (EMIT)</span><p>Joint attention and gesture in HoloLens-based collaborative astronomy. ENA / ONA on multimodal traces.</p></li>
-          <li class="tl__item" data-year-bind="2022"><span class="tl__year">2021 — 2023</span><span class="tl__role">Graduate Research Assistant · Speech Analytics</span><span class="tl__org">Dept. of Educational Psychology, UIUC · D'Angelo Lab</span><p>openSMILE + non-lexical audio features to elucidate teacher–student interaction.</p></li>
-          <li class="tl__item" data-year-bind="2021"><span class="tl__year">Spring 2021</span><span class="tl__role">M.A., Curriculum &amp; Instruction</span><span class="tl__org">University of Illinois Urbana-Champaign</span><p>"Impact of monitoring of instructor on the conceptual understanding of students working on a collaborative task as a group."</p></li>
-          <li class="tl__item" data-year-bind="2020"><span class="tl__year">2019 — 2021</span><span class="tl__role">Graduate Research Assistant · Colearn Lab</span><span class="tl__org">UIUC · Mercier Lab</span><p>Confirmatory factor analysis &amp; path modeling on instructor monitoring.</p></li>
-          <li class="tl__item" data-year-bind="2019"><span class="tl__year">2018 — 2019</span><span class="tl__role">Research Fellow · Colearn Lab</span><span class="tl__org">UIUC</span><p>Authored introductory solid-mechanics tasks; built CSTEPS prompt library on collaborative-learning theory.</p></li>
-          <li class="tl__item" data-year-bind="2018"><span class="tl__year">Spring 2018</span><span class="tl__role">M.S., Mechanical Engineering</span><span class="tl__org">University of Illinois Urbana-Champaign</span><p>Crossed disciplines: from solid mechanics into how engineering is taught.</p></li>
-          <li class="tl__item" data-year-bind="2017"><span class="tl__year">2016 — 2018</span><span class="tl__role">Graduate TA &amp; Lecturer</span><span class="tl__org">TAM 210 / 211 / 251 / 435 · UIUC</span><p>Statics, intro solid mechanics, intermediate fluid mechanics. Bloom's-tagged questions on PrairieLearn.</p></li>
-          <li class="tl__item" data-year-bind="2016"><span class="tl__year">Fall 2016</span><span class="tl__role">PrairieLearn implementation</span><span class="tl__org">Mariana Silva, Mech. Sci. &amp; Eng., UIUC</span><p>Question authoring + scripted feedback at scale for 'Introductory Solid Mechanics.'</p></li>
-          <li class="tl__item" data-year-bind="2013"><span class="tl__year">Spring 2013</span><span class="tl__role">B.E., Mechanical Engineering</span><span class="tl__org">Anna University, Chennai, India</span><p>Co-organized PINNACLE, a national mechanical engineering symposium; led the 'Auto-Anatomy' workshop at Kurukshetra '12.</p></li>
-        </ol>
-      </div>
-    </div>
+      </li>
+
+      <li class="exp">
+        <div class="exp__period">Aug 2023 — Aug 2025</div>
+        <div class="exp__body">
+          <h3 class="exp__org">INVITE AI Institute</h3>
+          <p class="exp__role">Graduate Research Assistant</p>
+          <p class="exp__meta">
+            <span class="exp__loc">Champaign, IL</span>
+          </p>
+          <ul class="exp__bullets">
+            <li>Pioneered the use of <strong>LLaVA</strong> (Large Language and Vision Assistant) to automatically detect non-verbal cues from video, enabling holistic analysis of collaboration.</li>
+            <li>Prompt-engineered LLMs to automate detection of collaborative behaviors from speech transcripts — eliminating manual coding while achieving accuracy &gt; 0.85 for most behaviors.</li>
+            <li>Validated a noise-adaptive neural network that fuses audio, linguistic, and video data to maintain detection of student collaboration states even when modality quality drops.</li>
+            <li>Improved facial-recognition accuracy in group settings by <strong>400%</strong> by deploying a 360-degree camera for superior data collection.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="exp">
+        <div class="exp__period">Jan 2023 — May 2025</div>
+        <div class="exp__body">
+          <h3 class="exp__org">CoLearn Lab <span class="exp__org-aff">· UIUC</span></h3>
+          <p class="exp__role">Graduate Research Assistant</p>
+          <p class="exp__meta">
+            <span class="exp__loc">Champaign, IL</span>
+            <span class="exp__pi"><span class="exp__pi-label">PI</span><em>Dr. Emma Mercier</em></span>
+          </p>
+          <ul class="exp__bullets">
+            <li>Developed a late-fusion <strong>Random Forest</strong> model in Python that achieved an F1-score &gt; 0.8 in predicting on-task collaborative behaviors from video, audio, and log data.</li>
+            <li>Identified the unique predictive power of each data stream and advanced the methodology by introducing group-wise cross-validation and SMOTE to ensure model robustness and address class imbalance.</li>
+            <li>Investigated the impact of spatial pedagogy on student help-seeking behaviors by tracking teacher positional data through fisheye camera footage with OpenCV.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="exp">
+        <div class="exp__period">Aug 2022 — May 2025</div>
+        <div class="exp__body">
+          <h3 class="exp__org">Immersive Data Lab <span class="exp__org-aff">· UIUC</span></h3>
+          <p class="exp__role">Graduate Research Assistant</p>
+          <p class="exp__meta">
+            <span class="exp__loc">Champaign, IL</span>
+            <span class="exp__pi"><span class="exp__pi-label">PI</span><em>Dr. Jina Kang</em></span>
+          </p>
+          <ul class="exp__bullets">
+            <li>Led a user-centered redesign of the <strong>HoloOrbits</strong> astronomy simulation, enhancing UX based on usability testing with students and teachers.</li>
+            <li>Fine-tuned a Small Language Model (Microsoft <strong>Phi-3</strong>) on synthetic data to replicate a GPT-4o tutor agent — achieving 85% result replication while identifying systematic model hallucinations.</li>
+            <li>Applied <strong>ONA &amp; ENA</strong> network analysis to visually map and quantify the link between students' joint attention and successful collaboration.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="exp">
+        <div class="exp__period">May 2023 — Aug 2024</div>
+        <div class="exp__body">
+          <h3 class="exp__org">Siebel Center for Design <span class="exp__org-aff">· UIUC</span></h3>
+          <p class="exp__role">Graduate Research Assistant</p>
+          <p class="exp__meta">
+            <span class="exp__loc">Champaign, IL</span>
+          </p>
+          <ul class="exp__bullets">
+            <li>Designed and implemented an infrastructure that streamlined interactions among K-12 teachers, engineering graduate TAs, and Teaching Catalysts (education seniors) to develop lesson plans together.</li>
+            <li>Delivered key insights for program improvement by designing, deploying, and analyzing survey data from graduate teaching assistants to evaluate the effectiveness of this new teaching ecosystem.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="exp">
+        <div class="exp__period">Aug 2021 — May 2023</div>
+        <div class="exp__body">
+          <h3 class="exp__org">CoLearn Lab <span class="exp__org-aff">· UIUC</span></h3>
+          <p class="exp__role">Graduate Research Assistant <span class="exp__role-tag">— Speech Analytics</span></p>
+          <p class="exp__meta">
+            <span class="exp__loc">Champaign, IL</span>
+            <span class="exp__pi"><span class="exp__pi-label">PI</span><em>Dr. Emma Mercier</em></span>
+          </p>
+          <ul class="exp__bullets">
+            <li>Processed group and individual audio data from undergraduate collaborative sessions using the <strong>openSMILE</strong> toolkit.</li>
+            <li>Analyzed non-lexical features to elucidate patterns in student collaboration and teacher–student interactions.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="exp">
+        <div class="exp__period">Aug 2020 — Aug 2022</div>
+        <div class="exp__body">
+          <h3 class="exp__org">Embodied &amp; Immersive Technologies Group <span class="exp__org-aff">· UIUC</span></h3>
+          <p class="exp__role">Graduate Research Assistant</p>
+          <p class="exp__meta">
+            <span class="exp__loc">Champaign, IL</span>
+            <span class="exp__pi"><span class="exp__pi-label">PI</span><em>Dr. Robb Lindgren</em></span>
+          </p>
+          <ul class="exp__bullets">
+            <li>Orchestrated the collection of a complex, mixed-media dataset (<strong>CEASAR</strong>) from students using HoloLens 2, creating a rich repository for embodied collaboration research.</li>
+            <li>Refined and implemented behavioral coding schemes to analyze how physical gestures function as key indicators of embodied collaborative learning.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="exp">
+        <div class="exp__period">Aug 2019 — May 2021</div>
+        <div class="exp__body">
+          <h3 class="exp__org">CoLearn Lab <span class="exp__org-aff">· UIUC</span></h3>
+          <p class="exp__role">Graduate Research Assistant</p>
+          <p class="exp__meta">
+            <span class="exp__loc">Champaign, IL</span>
+            <span class="exp__pi"><span class="exp__pi-label">PI</span><em>Dr. Emma Mercier</em></span>
+          </p>
+          <ul class="exp__bullets">
+            <li>Designed and implemented robust behavioral coding schemes for the <strong>CSTEPS</strong> project to systematically quantify instructor–student interactions and their effect on student learning.</li>
+            <li>Applied advanced statistical modeling (Confirmatory Factor Analysis &amp; Path Analysis) to validate a theoretical framework, proving a significant link between teaching interactions and student outcomes.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="exp">
+        <div class="exp__period">Aug 2018 — Aug 2019</div>
+        <div class="exp__body">
+          <h3 class="exp__org">CoLearn Lab <span class="exp__org-aff">· UIUC</span></h3>
+          <p class="exp__role">Research Fellow</p>
+          <p class="exp__meta">
+            <span class="exp__loc">Champaign, IL</span>
+            <span class="exp__pi"><span class="exp__pi-label">PI</span><em>Dr. Emma Mercier</em></span>
+          </p>
+          <ul class="exp__bullets">
+            <li>Designed a 50-minute research activity for Solid Mechanics, orchestrating the collection and manual annotation of multimodal data from longitudinal student-group sessions to create a foundational dataset on collaborative behaviors.</li>
+            <li>Authored a library of theory-backed collaboration prompts for the CSTEPS teacher tool, building the underlying database that helps instructors facilitate more effective student teamwork.</li>
+          </ul>
+        </div>
+      </li>
+
+    </ol>
+
+    <h2 class="cv__section-h cv__section-h--edu">Education</h2>
+    <ol class="edu-list">
+      <li class="edu">
+        <div class="edu__period">Aug 2021 — Aug 2025</div>
+        <div class="edu__body">
+          <h3 class="edu__deg"><b>Ph.D.</b> Curriculum &amp; Instruction</h3>
+          <p class="edu__org">University of Illinois Urbana-Champaign</p>
+        </div>
+      </li>
+      <li class="edu">
+        <div class="edu__period">Aug 2019 — May 2021</div>
+        <div class="edu__body">
+          <h3 class="edu__deg"><b>M.A.</b> Curriculum &amp; Instruction</h3>
+          <p class="edu__org">University of Illinois Urbana-Champaign</p>
+        </div>
+      </li>
+      <li class="edu">
+        <div class="edu__period">Aug 2013 — May 2018</div>
+        <div class="edu__body">
+          <h3 class="edu__deg"><b>M.S.</b> Mechanical Engineering</h3>
+          <p class="edu__org">The Grainger College of Engineering, UIUC</p>
+        </div>
+      </li>
+    </ol>
 
     <div class="cv__download">
       <a href="assets/FullCV_Faculty_v2.pdf" class="btn btn--gold" target="_blank" rel="noopener">Download full CV (PDF)<span aria-hidden="true">↓</span></a>
@@ -96,6 +251,6 @@
 </main>
 
 <div id="footer-mount"></div>
-<script src="script.js?v=7"></script>
+<script src="script.js?v=10"></script>
 </body>
 </html>

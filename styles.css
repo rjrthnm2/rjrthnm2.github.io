@@ -351,14 +351,6 @@ ul, ol { list-style: none; }
   filter: grayscale(0) contrast(1.06);
 }
 
-.hero__portrait figcaption {
-  display: grid; gap: 4px;
-  font-family: var(--font-mono);
-  font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
-  color: rgba(255,255,255,.55);
-  text-align: right;
-  padding-right: 4px;
-}
 .t-meta--inverse { color: var(--brand-gold) !important; }
 
 .hero__bottom {
@@ -370,15 +362,17 @@ ul, ol { list-style: none; }
   align-items: center; gap: 24px;
   max-width: 1640px; margin: 0 auto; width: 100%;
 }
-.hero__scroll {
+.hero__avail {
   display: inline-flex; align-items: center; gap: 12px;
   font-family: var(--font-mono);
   font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
-  color: rgba(255,255,255,.5);
+  color: rgba(255,255,255,.7);
 }
-.hero__scroll-line {
-  display: inline-block; width: 56px; height: 1px;
-  background: linear-gradient(90deg, var(--brand-gold), transparent);
+.hero__avail .dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--brand-gold);
+  box-shadow: 0 0 0 0 rgba(255,199,54,.6);
+  animation: pulse 1.6s infinite;
 }
 .hero__credits {
   display: grid; grid-template-columns: repeat(3, auto);

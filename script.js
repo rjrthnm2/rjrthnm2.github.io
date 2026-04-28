@@ -31,8 +31,6 @@
   </nav>
   <div class="nav__meta">
     <span class="nav__time" id="navTime">—</span>
-    <span class="nav__dot" aria-hidden="true"></span>
-    <span class="nav__loc">Urbana, IL</span>
     <button class="nav__toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav">
       <span></span><span></span><span></span>
     </button>

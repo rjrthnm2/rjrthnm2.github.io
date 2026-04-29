@@ -31,7 +31,7 @@
   </nav>
   <div class="nav__meta">
     <span class="nav__time" id="navTime">—</span>
-    <button class="nav__toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav">
+    <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -63,6 +63,7 @@
       const setOpen = (open) => {
         navEl_.classList.toggle('is-menu-open', open);
         toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
         document.body.classList.toggle('no-scroll', open);
         setInert(open);
       };
@@ -189,12 +190,20 @@
   const railBtns = $$('.year-rail [data-year]');
   const exps = $$('.exp[data-years]');
   if (railBtns.length && exps.length) {
-    // Click → scroll to first experience that includes that year
+    let arrivalTimer = null;
+    // Click → scroll to first experience that includes that year + arrival flash
     railBtns.forEach((btn) => {
       btn.addEventListener('click', () => {
         const y = btn.dataset.year;
         const target = exps.find((e) => (e.dataset.years || '').split(/\s+/).includes(y));
-        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (!target) return;
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Strip any previous flash and re-trigger the gold left-bar
+        exps.forEach((e) => e.classList.remove('is-just-arrived'));
+        clearTimeout(arrivalTimer);
+        // small delay so the class change happens after scroll begins
+        requestAnimationFrame(() => target.classList.add('is-just-arrived'));
+        arrivalTimer = setTimeout(() => target.classList.remove('is-just-arrived'), 1200);
       });
     });
     // Scroll → highlight all years the in-view experience spans.
@@ -208,7 +217,11 @@
       }
       if (!active) active = exps[0]; // before scroll: first exp
       const activeYears = new Set((active.dataset.years || '').split(/\s+/));
-      railBtns.forEach((b) => b.classList.toggle('is-on', activeYears.has(b.dataset.year)));
+      railBtns.forEach((b) => {
+        const on = activeYears.has(b.dataset.year);
+        b.classList.toggle('is-on', on);
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
     };
     window.addEventListener('scroll', onCv, { passive: true });
     onCv();

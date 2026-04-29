@@ -1232,7 +1232,30 @@ ul, ol { list-style: none; }
 .year-rail button.is-on::before { height: 60%; }
 
 /* offset so scrollIntoView lands below sticky top nav */
-.exp { scroll-margin-top: 80px; }
+.exp {
+  scroll-margin-top: 80px;
+  position: relative;
+}
+/* Brief gold-left flash when the year-rail scrolls you to this exp. */
+.exp::after {
+  content: "";
+  position: absolute;
+  left: -16px; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--brand-gold);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity .45s var(--ease-out), transform .45s var(--ease-out);
+  pointer-events: none;
+  border-radius: 2px;
+}
+.exp.is-just-arrived::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .exp::after { transition: none; }
+}
 
 /* ===== Experience + Education lists ===== */
 .cv__section-h {

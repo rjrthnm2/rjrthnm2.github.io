@@ -3,6 +3,80 @@
    Multi-page site
    ======================================================== */
 
+/* ============= FONTS (self-hosted, latin subset) ============= */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal; font-weight: 400; font-display: swap;
+  src: url('assets/fonts/jetbrains-mono-400-normal-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal; font-weight: 500; font-display: swap;
+  src: url('assets/fonts/jetbrains-mono-500-normal-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal; font-weight: 300; font-display: swap;
+  src: url('assets/fonts/mulish-300-normal-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal; font-weight: 400; font-display: swap;
+  src: url('assets/fonts/mulish-400-normal-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal; font-weight: 500; font-display: swap;
+  src: url('assets/fonts/mulish-500-normal-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal; font-weight: 600; font-display: swap;
+  src: url('assets/fonts/mulish-600-normal-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal; font-weight: 700; font-display: swap;
+  src: url('assets/fonts/mulish-700-normal-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal; font-weight: 800; font-display: swap;
+  src: url('assets/fonts/mulish-800-normal-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Philosopher';
+  font-style: normal; font-weight: 400; font-display: swap;
+  src: url('assets/fonts/philosopher-400-normal-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Philosopher';
+  font-style: italic; font-weight: 400; font-display: swap;
+  src: url('assets/fonts/philosopher-400-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Philosopher';
+  font-style: normal; font-weight: 700; font-display: swap;
+  src: url('assets/fonts/philosopher-700-normal-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Philosopher';
+  font-style: italic; font-weight: 700; font-display: swap;
+  src: url('assets/fonts/philosopher-700-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
   --brand-navy: #001B3D;
   --brand-gold: #FFC736;
@@ -67,7 +141,7 @@ ul, ol { list-style: none; }
 .t-meta {
   display: block; font-family: var(--font-mono);
   font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--gray-600);
+  color: var(--gray-700);
 }
 
 /* ============= LOADER ============= */
@@ -105,6 +179,39 @@ ul, ol { list-style: none; }
   position: absolute; inset: 0 100% 0 0;
   background: var(--brand-gold);
   transition: right .15s linear;
+}
+
+/* ============= REDUCED MOTION ============= */
+/* Honor users who request less motion: kill the long / looping animations
+   while preserving short hover-color and focus-ring transitions for clarity. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .nav__dot,
+  .hero__avail .dot,
+  .hero__edu .dot,
+  .gt-card--dark .dot {
+    animation: none;
+  }
+  .hero__title .word,
+  .hero__portrait,
+  .loader__sig {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  [data-reveal-up] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  /* Drop long-distance transitions but keep <200 ms color/opacity micro-transitions. */
+  .pub,
+  .home-nav__card,
+  .home-nav__card::before,
+  .nav__links,
+  .year-rail button {
+    transition: none !important;
+  }
 }
 
 /* ============= SKIP LINK ============= */
@@ -516,7 +623,7 @@ ul, ol { list-style: none; }
 .home-nav__card:hover .home-nav__name i { color: var(--brand-gold); }
 .home-nav__desc {
   font-size: 13px; line-height: 1.55;
-  color: var(--gray-600);
+  color: var(--gray-700);
   transition: color .35s;
 }
 .home-nav__card:hover .home-nav__desc { color: rgba(255,255,255,.7); }
@@ -572,7 +679,7 @@ ul, ol { list-style: none; }
 }
 .intro__side-head p {
   font-size: 14px; line-height: 1.55;
-  color: var(--gray-600); max-width: 32ch;
+  color: var(--gray-700); max-width: 32ch;
 }
 .intro__quick {
   display: grid; gap: 10px;
@@ -819,7 +926,7 @@ ul, ol { list-style: none; }
 .proj__num {
   font-family: var(--font-mono);
   font-size: 11px; letter-spacing: .18em;
-  color: var(--gray-600);
+  color: var(--gray-700);
   padding: 18px 24px 0;
 }
 .proj__media {
@@ -985,7 +1092,7 @@ ul, ol { list-style: none; }
 .pub__venue {
   font-family: var(--font-mono);
   font-size: 12px; letter-spacing: .06em;
-  color: var(--gray-600); text-align: right;
+  color: var(--gray-700); text-align: right;
   transition: color .35s;
 }
 .pub__arrow {
@@ -1449,7 +1556,7 @@ ul, ol { list-style: none; }
 .contact__big-label {
   font-family: var(--font-mono);
   font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--gray-600);
+  color: var(--gray-700);
   align-self: center;
 }
 .contact__big:hover .contact__big-label { color: rgba(255,255,255,.7); }
@@ -1461,7 +1568,7 @@ ul, ol { list-style: none; }
   line-height: 1; transition: color .35s;
 }
 .contact__big-arrow {
-  font-size: 32px; color: var(--gray-600);
+  font-size: 32px; color: var(--gray-700);
   transition: transform .4s var(--ease-out), color .35s;
 }
 .contact__rows {
@@ -1488,6 +1595,135 @@ ul, ol { list-style: none; }
   transition: color .2s;
 }
 .contact__links a:hover { color: var(--tc-600); }
+
+/* ============= PROSE (privacy, accessibility) ============= */
+.prose {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 var(--pad) clamp(48px, 8vh, 100px);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--brand-navy);
+}
+.prose h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(22px, 2.4vw, 28px);
+  letter-spacing: -.01em;
+  color: var(--brand-navy);
+  margin: 40px 0 12px;
+}
+.prose h2:first-child { margin-top: 0; }
+.prose p { margin: 0 0 16px; color: var(--gray-800); }
+.prose a { color: var(--brand-tc); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.prose a:hover { color: var(--brand-navy); }
+.prose__list {
+  list-style: disc;
+  margin: 0 0 16px;
+  padding-left: 22px;
+  display: grid; gap: 8px;
+}
+.prose__list li { color: var(--gray-800); }
+.prose__list li::marker { color: var(--brand-gold); }
+.prose__list li strong { color: var(--brand-navy); font-weight: 700; }
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background: var(--gold-50);
+  color: var(--brand-navy);
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+.prose__updated {
+  margin-top: 48px !important;
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gray-700);
+}
+
+/* ============= 404 ============= */
+.page--404 { background: var(--bg); padding: 0; }
+.four-oh-four {
+  min-height: calc(100vh - 80px);
+  display: grid; place-items: center;
+  padding: clamp(80px, 14vh, 160px) var(--pad) clamp(48px, 8vh, 100px);
+}
+.four-oh-four__inner {
+  max-width: 880px; width: 100%;
+  display: grid; gap: 28px;
+}
+.four-oh-four__num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(120px, 24vw, 220px);
+  line-height: 0.85;
+  letter-spacing: -.04em;
+  color: var(--brand-gold);
+  margin-bottom: -24px;
+}
+.four-oh-four__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 1.05;
+  letter-spacing: -.02em;
+  color: var(--brand-navy);
+  margin: 0;
+}
+.four-oh-four__title i { font-style: italic; color: var(--brand-tc); }
+.four-oh-four__lede {
+  font-size: 18px; line-height: 1.55;
+  color: var(--gray-800);
+  max-width: 56ch;
+  margin: 0;
+}
+.four-oh-four__nav {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  margin-top: 16px;
+  border-top: 1px solid var(--gray-300);
+}
+.four-oh-four__card {
+  display: grid; gap: 6px;
+  padding: 24px 22px;
+  border-bottom: 1px solid var(--gray-300);
+  border-right: 1px solid var(--gray-300);
+  transition: background .25s var(--ease-out), color .25s;
+}
+.four-oh-four__card:nth-child(2n) { border-right: 0; }
+.four-oh-four__card:hover {
+  background: var(--brand-navy);
+  color: #fff;
+}
+.four-oh-four__card:hover .t-meta { color: var(--brand-gold); }
+.four-oh-four__card:hover .four-oh-four__card-desc { color: rgba(255,255,255,.78); }
+.four-oh-four__card-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: -.01em;
+  color: var(--brand-navy);
+  transition: color .25s;
+}
+.four-oh-four__card:hover .four-oh-four__card-name { color: var(--brand-gold); }
+.four-oh-four__card-desc {
+  font-size: 13px; line-height: 1.55;
+  color: var(--gray-700);
+  transition: color .25s;
+}
+.four-oh-four__email {
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-size: 12px; letter-spacing: .04em;
+  color: var(--gray-700);
+}
+.four-oh-four__email a { color: var(--brand-tc); text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 600px) {
+  .four-oh-four__nav { grid-template-columns: 1fr; }
+  .four-oh-four__card { border-right: 0; }
+}
 
 /* ============= FOOTER ============= */
 .footer {
@@ -1544,6 +1780,15 @@ ul, ol { list-style: none; }
   flex-wrap: wrap; gap: 12px;
 }
 .footer__bot span { display: inline-block; }
+.footer__legal {
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.footer__legal a {
+  color: rgba(255,255,255,.78);
+  transition: color .2s;
+}
+.footer__legal a:hover { color: var(--brand-gold); }
+.footer__legal span { color: rgba(255,255,255,.3); }
 
 /* ============= REVEAL ============= */
 [data-reveal-up] {

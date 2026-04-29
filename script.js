@@ -44,16 +44,27 @@
     const navEl_ = document.getElementById('nav');
     const toggle = navEl_?.querySelector('.nav__toggle');
     if (toggle && navEl_) {
-      const closeMenu = () => {
-        navEl_.classList.remove('is-menu-open');
-        toggle.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('no-scroll');
+      // While the menu is open, take the rest of the page out of focus +
+      // a11y trees so screen readers and Tab stay inside the drawer.
+      const setInert = (open) => {
+        document.querySelectorAll('main, #footer-mount, footer').forEach((el) => {
+          if (open) {
+            el.setAttribute('inert', '');
+            el.setAttribute('aria-hidden', 'true');
+          } else {
+            el.removeAttribute('inert');
+            el.removeAttribute('aria-hidden');
+          }
+        });
       };
-      toggle.addEventListener('click', () => {
-        const open = navEl_.classList.toggle('is-menu-open');
+      const setOpen = (open) => {
+        navEl_.classList.toggle('is-menu-open', open);
         toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
         document.body.classList.toggle('no-scroll', open);
-      });
+        setInert(open);
+      };
+      const closeMenu = () => setOpen(false);
+      toggle.addEventListener('click', () => setOpen(!navEl_.classList.contains('is-menu-open')));
       // close when a nav link is tapped
       $$('.nav__links a').forEach(a => a.addEventListener('click', closeMenu));
       // close on Escape

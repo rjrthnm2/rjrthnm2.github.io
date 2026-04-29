@@ -1048,6 +1048,63 @@ ul, ol { list-style: none; }
   color: rgba(255,255,255,.78);
   max-width: 64ch;
 }
+/* ===== Year rail (sticky jump-to-year column) ===== */
+.cv__layout {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 40px;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+.year-rail {
+  position: sticky;
+  top: 80px;
+  align-self: start;
+  max-height: calc(100vh - 100px);
+}
+.year-rail ol {
+  list-style: none;
+  margin: 0; padding: 0;
+  display: grid; gap: 4px;
+  border-left: 1px solid rgba(255,255,255,.18);
+}
+.year-rail button {
+  background: transparent;
+  border: 0;
+  padding: 8px 14px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .14em;
+  color: rgba(255,255,255,.45);
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  position: relative;
+  transition: color .25s, padding-left .25s var(--ease-out);
+}
+.year-rail button::before {
+  content: "";
+  position: absolute;
+  left: -1px; top: 50%;
+  width: 2px; height: 0;
+  background: var(--brand-gold);
+  transform: translateY(-50%);
+  transition: height .25s var(--ease-out);
+}
+.year-rail button:hover {
+  color: rgba(255,255,255,.85);
+  padding-left: 18px;
+}
+.year-rail button.is-on {
+  color: var(--brand-gold);
+  padding-left: 18px;
+  font-weight: 700;
+}
+.year-rail button.is-on::before { height: 60%; }
+
+/* offset so scrollIntoView lands below sticky top nav */
+.exp { scroll-margin-top: 80px; }
+
 /* ===== Experience + Education lists ===== */
 .cv__section-h {
   max-width: var(--max);
@@ -1232,6 +1289,8 @@ ul, ol { list-style: none; }
   }
   .exp__period, .edu__period { padding-top: 0; }
   .exp__meta { gap: 10px; padding: 10px 0; }
+  .cv__layout { grid-template-columns: 1fr; gap: 0; }
+  .year-rail { display: none; }
 }
 
 .cv__download {

@@ -166,25 +166,33 @@
   }, { threshold: 0.25 });
   $$('[data-reveal-up]').forEach(el => revealIo.observe(el));
 
-  /* ---------- TIMELINE ---------- */
-  const tlIo = new IntersectionObserver((entries) => {
-    entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('is-in'); tlIo.unobserve(en.target); } });
-  }, { threshold: 0.18 });
-  $$('.tl__item').forEach(el => tlIo.observe(el));
-
-  const yearSpans = $$('.tl__col--years span');
-  const tlItems = $$('.tl__item');
-  if (yearSpans.length && tlItems.length) {
-    const onTl = () => {
-      const pivot = innerHeight * 0.35;
+  /* ---------- CV YEAR RAIL ---------- */
+  const railBtns = $$('.year-rail [data-year]');
+  const exps = $$('.exp[data-years]');
+  if (railBtns.length && exps.length) {
+    // Click → scroll to first experience that includes that year
+    railBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const y = btn.dataset.year;
+        const target = exps.find((e) => (e.dataset.years || '').split(/\s+/).includes(y));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+    // Scroll → highlight all years the in-view experience spans.
+    // Active = the latest exp whose top has crossed the pivot line.
+    const onCv = () => {
+      const pivot = innerHeight * 0.30;
       let active = null;
-      for (const it of tlItems) {
-        const r = it.getBoundingClientRect();
-        if (r.top <= pivot && r.bottom >= 0) { active = it.dataset.yearBind; break; }
+      for (const e of exps) {
+        if (e.getBoundingClientRect().top <= pivot) active = e;
+        else break;
       }
-      yearSpans.forEach(s => s.classList.toggle('is-on', s.dataset.year === active));
+      if (!active) active = exps[0]; // before scroll: first exp
+      const activeYears = new Set((active.dataset.years || '').split(/\s+/));
+      railBtns.forEach((b) => b.classList.toggle('is-on', activeYears.has(b.dataset.year)));
     };
-    window.addEventListener('scroll', onTl, { passive: true });
+    window.addEventListener('scroll', onCv, { passive: true });
+    onCv();
   }
 
   /* ---------- PHILOSOPHY ---------- */

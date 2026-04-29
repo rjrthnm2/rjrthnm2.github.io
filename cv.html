@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Mulish:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=10" />
+<link rel="stylesheet" href="styles.css?v=12" />
 <link rel="icon" href="assets/favicon/favicon.ico" />
 <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#001B3D" />
 <meta name="msapplication-config" content="assets/favicon/browserconfig.xml" />
@@ -25,9 +25,22 @@
 
   <section class="cv">
     <h2 class="cv__section-h">Experience</h2>
-    <ol class="exp-list">
+    <div class="cv__layout">
+      <aside class="year-rail" aria-label="Jump to year">
+        <ol>
+          <li><button type="button" data-year="2025">2025</button></li>
+          <li><button type="button" data-year="2024">2024</button></li>
+          <li><button type="button" data-year="2023">2023</button></li>
+          <li><button type="button" data-year="2022">2022</button></li>
+          <li><button type="button" data-year="2021">2021</button></li>
+          <li><button type="button" data-year="2020">2020</button></li>
+          <li><button type="button" data-year="2019">2019</button></li>
+          <li><button type="button" data-year="2018">2018</button></li>
+        </ol>
+      </aside>
+      <ol class="exp-list">
 
-      <li class="exp">
+      <li class="exp" data-years="2025">
         <div class="exp__period">Dec 2025 — Present</div>
         <div class="exp__body">
           <h3 class="exp__org">Radicality Ministries</h3>
@@ -44,7 +57,7 @@
         </div>
       </li>
 
-      <li class="exp">
+      <li class="exp" data-years="2025 2024 2023">
         <div class="exp__period">Aug 2023 — Aug 2025</div>
         <div class="exp__body">
           <h3 class="exp__org">INVITE AI Institute</h3>
@@ -61,7 +74,7 @@
         </div>
       </li>
 
-      <li class="exp">
+      <li class="exp" data-years="2025 2024 2023">
         <div class="exp__period">Jan 2023 — May 2025</div>
         <div class="exp__body">
           <h3 class="exp__org">CoLearn Lab <span class="exp__org-aff">· UIUC</span></h3>
@@ -78,7 +91,7 @@
         </div>
       </li>
 
-      <li class="exp">
+      <li class="exp" data-years="2025 2024 2023 2022">
         <div class="exp__period">Aug 2022 — May 2025</div>
         <div class="exp__body">
           <h3 class="exp__org">Immersive Data Lab <span class="exp__org-aff">· UIUC</span></h3>
@@ -95,7 +108,7 @@
         </div>
       </li>
 
-      <li class="exp">
+      <li class="exp" data-years="2024 2023">
         <div class="exp__period">May 2023 — Aug 2024</div>
         <div class="exp__body">
           <h3 class="exp__org">Siebel Center for Design <span class="exp__org-aff">· UIUC</span></h3>
@@ -110,7 +123,7 @@
         </div>
       </li>
 
-      <li class="exp">
+      <li class="exp" data-years="2023 2022 2021">
         <div class="exp__period">Aug 2021 — May 2023</div>
         <div class="exp__body">
           <h3 class="exp__org">CoLearn Lab <span class="exp__org-aff">· UIUC</span></h3>
@@ -126,7 +139,7 @@
         </div>
       </li>
 
-      <li class="exp">
+      <li class="exp" data-years="2022 2021 2020">
         <div class="exp__period">Aug 2020 — Aug 2022</div>
         <div class="exp__body">
           <h3 class="exp__org">Embodied &amp; Immersive Technologies Group <span class="exp__org-aff">· UIUC</span></h3>
@@ -142,7 +155,7 @@
         </div>
       </li>
 
-      <li class="exp">
+      <li class="exp" data-years="2021 2020 2019">
         <div class="exp__period">Aug 2019 — May 2021</div>
         <div class="exp__body">
           <h3 class="exp__org">CoLearn Lab <span class="exp__org-aff">· UIUC</span></h3>
@@ -158,7 +171,7 @@
         </div>
       </li>
 
-      <li class="exp">
+      <li class="exp" data-years="2019 2018">
         <div class="exp__period">Aug 2018 — Aug 2019</div>
         <div class="exp__body">
           <h3 class="exp__org">CoLearn Lab <span class="exp__org-aff">· UIUC</span></h3>
@@ -175,6 +188,7 @@
       </li>
 
     </ol>
+    </div>
 
     <h2 class="cv__section-h cv__section-h--edu">Education</h2>
     <ol class="edu-list">
@@ -251,6 +265,6 @@
 </main>
 
 <div id="footer-mount"></div>
-<script src="script.js?v=10"></script>
+<script src="script.js?v=12"></script>
 </body>
 </html>

@@ -38,7 +38,10 @@
 </header>`;
     // mark current
     $$('.nav__links a').forEach(a => {
-      if (a.dataset.page === currentPage) a.classList.add('is-current');
+      if (a.dataset.page === currentPage) {
+        a.classList.add('is-current');
+        a.setAttribute('aria-current', 'page');
+      }
     });
     // hamburger toggle
     const navEl_ = document.getElementById('nav');

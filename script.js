@@ -100,6 +100,11 @@
     </div>
     <div class="footer__bot">
       <span>&copy; <span id="year">2026</span> R. J. Rajarathinam</span>
+      <span class="footer__legal">
+        <a href="privacy.html">Privacy</a>
+        <span aria-hidden="true">·</span>
+        <a href="accessibility.html">Accessibility</a>
+      </span>
       <span>All rights reserved</span>
     </div>
   </div>

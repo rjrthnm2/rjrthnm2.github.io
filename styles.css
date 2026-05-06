@@ -1842,11 +1842,16 @@ ul, ol { list-style: none; }
   .nav__logo .logo-light, .nav__logo .logo-dark { position: absolute; left: 0; top: 0; height: 100%; }
   .nav__meta .nav__loc { display: none; }
   .nav__toggle { display: inline-flex; margin-left: 4px; }
-  /* drawer — opaque, cream background; covers page below the nav row */
+  /* drawer — opaque, cream background; covers page below the nav row.
+     Uses explicit width/height instead of top/bottom because .nav--light's
+     backdrop-filter creates a containing block that breaks viewport sizing
+     for position: fixed descendants. */
   .nav__links {
     position: fixed;
-    top: 56px; left: 0; right: 0; bottom: 0;
+    top: 56px; left: 0;
     width: 100vw;
+    height: calc(100vh - 56px);
+    height: calc(100dvh - 56px);
     justify-self: stretch;
     background: var(--bg);
     display: flex;

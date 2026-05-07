@@ -31,6 +31,26 @@
   </nav>
   <div class="nav__meta">
     <span class="nav__time" id="navTime">—</span>
+    <button class="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Switch to night mode">
+      <span class="theme-toggle__track">
+        <span class="theme-toggle__thumb">
+          <svg class="theme-toggle__icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.2"/>
+            <line x1="12" y1="2.5" x2="12" y2="4.5"/>
+            <line x1="12" y1="19.5" x2="12" y2="21.5"/>
+            <line x1="4.6" y1="4.6" x2="6.1" y2="6.1"/>
+            <line x1="17.9" y1="17.9" x2="19.4" y2="19.4"/>
+            <line x1="2.5" y1="12" x2="4.5" y2="12"/>
+            <line x1="19.5" y1="12" x2="21.5" y2="12"/>
+            <line x1="4.6" y1="19.4" x2="6.1" y2="17.9"/>
+            <line x1="17.9" y1="6.1" x2="19.4" y2="4.6"/>
+          </svg>
+          <svg class="theme-toggle__icon-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+          </svg>
+        </span>
+      </span>
+    </button>
     <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
       <span></span><span></span><span></span>
     </button>
@@ -73,6 +93,23 @@
       $$('.nav__links a').forEach(a => a.addEventListener('click', closeMenu));
       // close on Escape
       document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+    }
+    // theme toggle
+    const themeToggle = navEl_?.querySelector('.theme-toggle');
+    if (themeToggle) {
+      const syncTheme = (theme) => {
+        document.documentElement.setAttribute('data-theme', theme);
+        try { localStorage.setItem('theme', theme); } catch (e) {}
+        const isNight = theme === 'night';
+        themeToggle.setAttribute('aria-checked', isNight ? 'true' : 'false');
+        themeToggle.setAttribute('aria-label', isNight ? 'Switch to day mode' : 'Switch to night mode');
+      };
+      // sync ARIA from whatever the inline init script applied
+      syncTheme(document.documentElement.getAttribute('data-theme') || 'day');
+      themeToggle.addEventListener('click', () => {
+        const next = document.documentElement.getAttribute('data-theme') === 'night' ? 'day' : 'night';
+        syncTheme(next);
+      });
     }
   }
 

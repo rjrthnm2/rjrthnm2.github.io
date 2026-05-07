@@ -123,6 +123,69 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { background: var(--bg); color: var(--brand-black); }
 html { scroll-behavior: smooth; }
+
+/* ============= NIGHT MODE TOKEN OVERRIDES ============= */
+[data-theme="night"] {
+  --bg: #001B3D;
+  --brand-black: #F5F1E8;
+
+  /* yellow → red swap (per user spec) */
+  --brand-gold: #C4391D;
+  --gold-700: #8E2913;
+  --gold-600: #E0654A;
+  --gold-50:  rgba(196, 57, 29, 0.14);
+
+  /* terracotta dialed warmer for legibility on dark */
+  --brand-tc: #E8745A;
+  --tc-600:   #C4391D;
+  --tc-50:    rgba(232, 116, 90, 0.14);
+
+  /* Greys flipped to white-alpha so opacity reads against dark navy */
+  --gray-50:  rgba(255, 255, 255, 0.03);
+  --gray-100: rgba(255, 255, 255, 0.05);
+  --gray-200: rgba(255, 255, 255, 0.10);
+  --gray-300: rgba(255, 255, 255, 0.16);
+  --gray-500: rgba(255, 255, 255, 0.45);
+  --gray-600: rgba(255, 255, 255, 0.60);
+  --gray-700: rgba(255, 255, 255, 0.78);
+  --gray-800: rgba(255, 255, 255, 0.90);
+  --gray-900: rgba(255, 255, 255, 0.96);
+
+  --ink: #F5F1E8;
+  --ink-2: rgba(255, 255, 255, 0.78);
+}
+
+/* ============= THEME CROSSFADE (400ms) ============= */
+body,
+.nav,
+.nav--light,
+.nav__links,
+.hero--home,
+.home-nav,
+.home-nav__card,
+.home-nav__card::before,
+.intro,
+.cv,
+.grid-tabs,
+.gt-card,
+.gt-card--dark,
+.pub,
+.pub::before,
+.footer,
+.footer__top,
+.four-oh-four,
+.four-oh-four__card,
+.prose code {
+  transition: background-color .4s ease, color .4s ease, border-color .4s ease, fill .4s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  body, .nav, .nav--light, .nav__links, .hero--home, .home-nav, .home-nav__card,
+  .home-nav__card::before, .intro, .cv, .grid-tabs, .gt-card, .gt-card--dark,
+  .pub, .pub::before, .footer, .footer__top, .four-oh-four, .four-oh-four__card,
+  .prose code {
+    transition: none;
+  }
+}
 body {
   font-family: var(--font-sans);
   font-size: 17px;
@@ -334,6 +397,70 @@ ul, ol { list-style: none; }
 @keyframes pulse {
   0% { box-shadow: 0 0 0 0 rgba(255,199,54,.6); }
   100% { box-shadow: 0 0 0 12px rgba(255,199,54,0); }
+}
+
+/* ============= THEME TOGGLE (sun/moon pill switch) ============= */
+.theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 56px; height: 30px;
+  padding: 0; margin: 0 6px 0 0;
+  border: 0; background: transparent; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.theme-toggle:focus-visible { outline: 2px solid var(--brand-gold); outline-offset: 4px; border-radius: 999px; }
+.theme-toggle__track {
+  position: relative;
+  width: 100%; height: 100%;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.20);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  transition: background-color .35s var(--ease-out), border-color .35s var(--ease-out);
+}
+.nav--light .theme-toggle__track {
+  background: rgba(0, 27, 61, 0.10);
+  border-color: rgba(0, 27, 61, 0.20);
+}
+.theme-toggle__thumb {
+  position: absolute;
+  top: 2px; left: 2px;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--brand-gold);
+  display: grid; place-items: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+  transition: left .4s var(--ease-out), background-color .4s var(--ease-out);
+}
+.theme-toggle__thumb svg {
+  position: absolute;
+  width: 14px; height: 14px;
+  transition: opacity .35s var(--ease-out), transform .55s var(--ease-out);
+}
+.theme-toggle__icon-sun {
+  color: var(--brand-navy);
+  opacity: 1;
+  transform: rotate(0deg);
+}
+.theme-toggle__icon-moon {
+  color: #FAF8F4;
+  opacity: 0;
+  transform: rotate(-90deg);
+}
+[data-theme="night"] .theme-toggle__track {
+  background: #FAF8F4;
+  border-color: rgba(255, 255, 255, 0.30);
+}
+[data-theme="night"] .nav--light .theme-toggle__track {
+  background: #FAF8F4;
+  border-color: rgba(0, 27, 61, 0.20);
+}
+[data-theme="night"] .theme-toggle__thumb {
+  left: calc(100% - 26px);
+  background: var(--brand-navy);
+}
+[data-theme="night"] .theme-toggle__icon-sun { opacity: 0; transform: rotate(90deg); }
+[data-theme="night"] .theme-toggle__icon-moon { opacity: 1; color: var(--brand-gold); transform: rotate(0deg); }
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle__track, .theme-toggle__thumb, .theme-toggle__thumb svg { transition: none; }
 }
 
 /* ============= HERO (HOME) ============= */
@@ -1911,3 +2038,133 @@ ul, ol { list-style: none; }
   .tl { grid-template-columns: 1fr; }
   .tl__col--years { display: none; }
 }
+
+
+/* ============= NIGHT-MODE ELEMENT OVERRIDES ============= */
+[data-theme="night"] body {
+  background: var(--brand-navy);
+  color: var(--ink);
+}
+
+/* Nav: force the navy/dark logo (white signature) regardless of nav state */
+[data-theme="night"] .nav__logo .logo-dark { opacity: 1; }
+[data-theme="night"] .nav__logo .logo-light { opacity: 0; }
+
+/* On non-home pages the nav has nav--light (cream); flip it to navy in night */
+[data-theme="night"] .nav--light {
+  color: #fff;
+  background: rgba(0, 27, 61, 0.94);
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+[data-theme="night"] .nav.is-stuck {
+  background: rgba(0, 27, 61, 0.94);
+  color: #fff;
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+[data-theme="night"] .nav.is-stuck .nav__links a.is-current,
+[data-theme="night"] .nav--light .nav__links a.is-current { color: var(--brand-tc); }
+
+/* Hero: stays navy in both modes; in night, dissolve the gold rule below it
+   so the hero blends into the dark sections beneath instead of being underlined. */
+[data-theme="night"] .hero--home { border-bottom-color: transparent; }
+
+/* Sections that were cream in day flip to navy in night */
+[data-theme="night"] .home-nav,
+[data-theme="night"] .grid-tabs {
+  background: var(--brand-navy);
+}
+[data-theme="night"] .home-nav__head h2,
+[data-theme="night"] .home-nav__name { color: var(--ink); }
+[data-theme="night"] .home-nav__num { color: var(--brand-gold); }
+[data-theme="night"] .home-nav__desc { color: var(--ink-2); }
+[data-theme="night"] .home-nav__card { color: var(--ink-2); border-color: rgba(255,255,255,.10); }
+[data-theme="night"] .home-nav__card::before { background: var(--brand-tc); }
+[data-theme="night"] .home-nav__card:hover { color: rgba(255,255,255,.78); }
+[data-theme="night"] .home-nav__card:hover .home-nav__name { color: #fff; }
+[data-theme="night"] .home-nav__card:hover .home-nav__num { color: var(--brand-gold); }
+[data-theme="night"] .home-nav__card:hover .home-nav__name i { color: var(--brand-gold); }
+
+/* Intro: dark mode reskin */
+[data-theme="night"] .intro { background: var(--brand-navy); color: var(--ink); }
+[data-theme="night"] .intro__chap, [data-theme="night"] .chap__title { color: var(--ink); }
+[data-theme="night"] .lede, [data-theme="night"] .intro p { color: var(--ink-2); }
+[data-theme="night"] .intro strong { color: var(--ink); }
+[data-theme="night"] .intro__side-head h3 { color: var(--ink); }
+[data-theme="night"] .intro__quick li { color: var(--ink-2); border-color: rgba(255,255,255,.08); }
+[data-theme="night"] .intro__quick li span {
+  background: var(--brand-navy);
+  color: var(--brand-gold);
+  border: 1px solid rgba(255,255,255,.18);
+}
+
+/* Publications page list: dark reskin */
+[data-theme="night"] .pubs__list { border-top-color: rgba(255,255,255,.12); }
+[data-theme="night"] .pub { border-bottom-color: rgba(255,255,255,.10); color: var(--ink-2); }
+[data-theme="night"] .pub__num, [data-theme="night"] .pub__venue { color: var(--ink-2); }
+[data-theme="night"] .pub__body h4 { color: var(--ink); }
+[data-theme="night"] .pubs__chip {
+  border-color: rgba(255,255,255,.18);
+  color: var(--ink-2);
+}
+[data-theme="night"] .pubs__chip.is-active {
+  background: var(--brand-navy);
+  color: #fff;
+  border-color: var(--brand-gold);
+}
+
+/* CV grid-tab cards */
+[data-theme="night"] .gt-card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  color: var(--ink-2);
+}
+[data-theme="night"] .gt-card h4 { color: var(--ink); }
+[data-theme="night"] .gt-card ul li { color: var(--ink-2); }
+[data-theme="night"] .gt-card--dark { background: var(--brand-tc); }
+
+/* Page header (inner pages) */
+[data-theme="night"] .page__header { color: var(--ink); }
+[data-theme="night"] .page__header-top { color: var(--ink-2); border-bottom-color: rgba(255,255,255,.12); }
+[data-theme="night"] .page__title { color: var(--ink); }
+[data-theme="night"] .page__lede { color: var(--ink-2); }
+
+/* Prose pages (privacy, accessibility) */
+[data-theme="night"] .prose { color: var(--ink); }
+[data-theme="night"] .prose h2 { color: var(--ink); }
+[data-theme="night"] .prose p, [data-theme="night"] .prose__list li { color: var(--ink-2); }
+[data-theme="night"] .prose__list li strong { color: var(--ink); }
+[data-theme="night"] .prose code { background: rgba(255,255,255,.08); color: var(--brand-gold); }
+
+/* 404 page */
+[data-theme="night"] .page--404 { background: var(--brand-navy); }
+[data-theme="night"] .four-oh-four__title { color: var(--ink); }
+[data-theme="night"] .four-oh-four__lede { color: var(--ink-2); }
+[data-theme="night"] .four-oh-four__nav { border-top-color: rgba(255,255,255,.12); }
+[data-theme="night"] .four-oh-four__card {
+  border-color: rgba(255,255,255,.10);
+  color: var(--ink-2);
+}
+[data-theme="night"] .four-oh-four__card-name { color: var(--ink); }
+[data-theme="night"] .four-oh-four__card:hover { background: var(--brand-tc); color: #fff; }
+[data-theme="night"] .four-oh-four__card:hover .four-oh-four__card-name { color: var(--brand-gold); }
+
+/* Mobile drawer flips to navy in night */
+@media (max-width: 720px) {
+  [data-theme="night"] .nav__links { background: var(--brand-navy); }
+  [data-theme="night"] .nav__links a { color: var(--ink); }
+  [data-theme="night"] .nav__links a:hover, [data-theme="night"] .nav__links a:focus-visible { color: var(--brand-tc); }
+  [data-theme="night"] .nav__links a.is-current { color: var(--brand-tc); }
+  [data-theme="night"] .nav.is-menu-open { background: var(--brand-navy); color: #fff; }
+  [data-theme="night"] .nav.is-menu-open .nav__time { color: #fff; }
+  [data-theme="night"] .nav.is-menu-open .nav__toggle span { background: #fff; }
+  [data-theme="night"] .nav.is-menu-open .nav__logo .logo-dark { opacity: 1; }
+  [data-theme="night"] .nav.is-menu-open .nav__logo .logo-light { opacity: 0; }
+}
+
+/* Portrait — slightly warmer/desaturated in night */
+[data-theme="night"] .portrait-frame--dark img {
+  filter: grayscale(35%) contrast(0.98) brightness(0.88) saturate(0.95) sepia(0.06);
+}
+
+/* Skip link readable in both themes */
+[data-theme="night"] .skip-link { background: var(--brand-gold); color: var(--brand-navy); }

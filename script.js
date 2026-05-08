@@ -118,29 +118,47 @@
 <footer class="footer">
   <div class="footer__top"></div>
   <div class="footer__inner">
-    <div class="footer__sig">
-      <img src="assets/logo-white.png" alt="Robin Jephthah Rajarathinam">
-    </div>
     <div class="footer__cols">
-      <div>
+      <div class="footer__col footer__col--lead">
+        <div class="footer__sig">
+          <img src="assets/logo-white.png" alt="Robin Jephthah Rajarathinam">
+        </div>
+        <p class="footer__tag">Researcher &middot; Designer &middot; Educator</p>
+      </div>
+      <div class="footer__col footer__col--site">
         <span class="t-meta">Site</span>
         <a href="index.html">Home</a>
         <a href="publications.html">Publications</a>
         <a href="cv.html">CV</a>
         <a href="contact.html">Contact</a>
       </div>
-      <div>
-        <span class="t-meta">Elsewhere</span>
-        <a href="https://www.linkedin.com/in/robin-jephthah-rajarathinam/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://scholar.google.com/citations?user=4ky-x60AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
-        <a href="mailto:robinzjephthah@gmail.com">Email</a>
+      <div class="footer__col footer__col--connect">
+        <span class="t-meta">Connect</span>
+        <ul class="footer__icons">
+          <li><a class="footer__icon" href="https://www.linkedin.com/in/robin-jephthah-rajarathinam/" target="_blank" rel="noopener" aria-label="LinkedIn — Robin Jephthah Rajarathinam">
+            <span class="footer__icon-glyph" data-icon="linkedin" aria-hidden="true"></span>
+            <span class="footer__icon-label">LinkedIn</span>
+          </a></li>
+          <li><a class="footer__icon" href="https://scholar.google.com/citations?user=4ky-x60AAAAJ&amp;hl=en" target="_blank" rel="noopener" aria-label="Google Scholar — Robin Jephthah Rajarathinam">
+            <span class="footer__icon-glyph" data-icon="scholar" aria-hidden="true"></span>
+            <span class="footer__icon-label">Scholar</span>
+          </a></li>
+          <li><a class="footer__icon" href="https://github.com/rjrthnm2" target="_blank" rel="noopener" aria-label="GitHub — rjrthnm2">
+            <span class="footer__icon-glyph" data-icon="github" aria-hidden="true"></span>
+            <span class="footer__icon-label">GitHub</span>
+          </a></li>
+          <li><a class="footer__icon" href="mailto:robinzjephthah@gmail.com" aria-label="Email Robin Jephthah Rajarathinam">
+            <span class="footer__icon-glyph" data-icon="email" aria-hidden="true"></span>
+            <span class="footer__icon-label">Email</span>
+          </a></li>
+        </ul>
       </div>
     </div>
     <div class="footer__bot">
-      <span>&copy; <span id="year">2026</span> R. J. Rajarathinam</span>
+      <span>&copy; <span id="year">2026</span> Robin Jephthah Rajarathinam</span>
       <span class="footer__legal">
         <a href="privacy.html">Privacy</a>
-        <span aria-hidden="true">·</span>
+        <span aria-hidden="true">&middot;</span>
         <a href="accessibility.html">Accessibility</a>
       </span>
       <span>All rights reserved</span>

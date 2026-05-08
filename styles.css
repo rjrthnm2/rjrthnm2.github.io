@@ -1913,41 +1913,104 @@ ul, ol { list-style: none; }
 .footer__inner {
   padding: 48px var(--pad) 32px;
   max-width: var(--max); margin: 0 auto;
-  display: grid; gap: 32px;
+  display: grid; gap: 36px;
 }
+.footer__cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px 48px;
+  border-top: 1px solid rgba(255,255,255,.12);
+  padding-top: 32px;
+}
+.footer__col { display: grid; gap: 12px; align-content: start; }
+.footer__col--lead { gap: 14px; }
 .footer__sig {
-  display: flex; align-items: center; gap: 18px;
+  display: inline-flex; align-items: center; gap: 18px;
   flex-wrap: wrap;
 }
 .footer__sig img {
   height: 56px; width: auto;
   filter: brightness(0) invert(1);
 }
-.footer__cols {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 48px;
-  border-top: 1px solid rgba(255,255,255,.12);
-  padding-top: 32px;
+.footer__tag {
+  font-family: var(--font-mono);
+  font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+  color: rgba(255,255,255,.55);
+  margin: 0;
 }
-.footer__cols > div { display: grid; gap: 8px; align-content: start; }
 .footer__cols .t-meta {
   color: var(--brand-gold) !important;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
-.footer__cols a, .footer__cols span:not(.t-meta) {
+.footer__cols span:not(.t-meta) {
+  font-size: 14px;
+  color: rgba(255,255,255,.78);
+}
+.footer__col--site a {
   font-size: 14px;
   color: rgba(255,255,255,.78);
   transition: color .2s;
   display: block;
-  font-weight: 400;
-}
-.footer__cols a {
   padding: 10px 0;
   min-height: 44px;
   line-height: 24px;
+  font-weight: 400;
 }
-.footer__cols a:hover { color: var(--brand-gold); }
+.footer__col--site a:hover { color: var(--brand-gold); }
+
+.footer__icons {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+.footer__icons li { display: block; }
+.footer__icon {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 16px;
+  min-height: 44px;
+  width: 100%;
+  max-width: 220px;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 999px;
+  font-size: 13px;
+  color: rgba(255,255,255,.78);
+  transition: color .2s, border-color .2s, background .2s;
+}
+.footer__icon:hover {
+  color: var(--brand-gold);
+  border-color: var(--brand-gold);
+  background: rgba(255,255,255,.04);
+}
+.footer__icon-glyph {
+  width: 18px; height: 18px;
+  display: inline-block;
+  background: currentColor;
+  -webkit-mask-position: center;
+          mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  flex: 0 0 auto;
+}
+.footer__icon-glyph[data-icon="linkedin"] {
+  -webkit-mask-image: url('assets/icons/linkedin.svg');
+          mask-image: url('assets/icons/linkedin.svg');
+}
+.footer__icon-glyph[data-icon="scholar"] {
+  -webkit-mask-image: url('assets/icons/google-scholar.svg');
+          mask-image: url('assets/icons/google-scholar.svg');
+}
+.footer__icon-glyph[data-icon="github"] {
+  -webkit-mask-image: url('assets/icons/github.svg');
+          mask-image: url('assets/icons/github.svg');
+}
+.footer__icon-glyph[data-icon="email"] {
+  -webkit-mask-image: url('assets/icons/email.svg');
+          mask-image: url('assets/icons/email.svg');
+}
+.footer__icon-label { letter-spacing: .04em; }
 .footer__bot {
   border-top: 1px solid rgba(255,255,255,.12);
   padding-top: 24px;
@@ -2186,8 +2249,12 @@ ul, ol { list-style: none; }
    so we point footer accents at --brand-tc (yellow in night). */
 [data-theme="night"] .footer__top { background: var(--brand-tc); }
 [data-theme="night"] .footer__cols .t-meta { color: var(--brand-tc) !important; }
-[data-theme="night"] .footer__cols a:hover,
+[data-theme="night"] .footer__col--site a:hover,
 [data-theme="night"] .footer__legal a:hover { color: var(--brand-tc); }
+[data-theme="night"] .footer__icon:hover {
+  color: var(--brand-tc);
+  border-color: var(--brand-tc);
+}
 
 /* Mobile drawer flips to navy in night */
 @media (max-width: 720px) {

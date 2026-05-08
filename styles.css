@@ -1803,7 +1803,7 @@ ul, ol { list-style: none; }
   display: grid; gap: 8px;
 }
 .prose__list li { color: var(--gray-800); }
-.prose__list li::marker { color: var(--brand-gold); }
+.prose__list li::marker { color: var(--brand-tc); }
 .prose__list li strong { color: var(--brand-navy); font-weight: 700; }
 .prose code {
   font-family: var(--font-mono);
@@ -1837,7 +1837,7 @@ ul, ol { list-style: none; }
   font-size: clamp(120px, 24vw, 220px);
   line-height: 0.85;
   letter-spacing: -.04em;
-  color: var(--brand-gold);
+  color: var(--brand-tc);
   margin-bottom: -24px;
 }
 .four-oh-four__title {
@@ -2174,8 +2174,20 @@ ul, ol { list-style: none; }
   color: var(--ink-2);
 }
 [data-theme="night"] .four-oh-four__card-name { color: var(--ink); }
-[data-theme="night"] .four-oh-four__card:hover { background: var(--brand-tc); color: #fff; }
-[data-theme="night"] .four-oh-four__card:hover .four-oh-four__card-name { color: var(--brand-gold); }
+/* Night card hover: cream bg + navy text — mirrors home-nav cards.
+   (Was yellow bg + white text, which is ~1.1:1 contrast.) */
+[data-theme="night"] .four-oh-four__card:hover { background: var(--ink); color: var(--brand-navy); }
+[data-theme="night"] .four-oh-four__card:hover .four-oh-four__card-name { color: var(--brand-navy); }
+[data-theme="night"] .four-oh-four__card:hover .four-oh-four__card-desc { color: var(--brand-navy); }
+[data-theme="night"] .four-oh-four__card:hover .t-meta { color: var(--brand-tc); }
+
+/* Footer is constant navy in both modes — accents must always be yellow.
+   In night, --brand-gold flips to red, which fails AA on navy at small sizes,
+   so we point footer accents at --brand-tc (yellow in night). */
+[data-theme="night"] .footer__top { background: var(--brand-tc); }
+[data-theme="night"] .footer__cols .t-meta { color: var(--brand-tc) !important; }
+[data-theme="night"] .footer__cols a:hover,
+[data-theme="night"] .footer__legal a:hover { color: var(--brand-tc); }
 
 /* Mobile drawer flips to navy in night */
 @media (max-width: 720px) {

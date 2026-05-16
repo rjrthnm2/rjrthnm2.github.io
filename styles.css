@@ -278,6 +278,17 @@ ul, ol { list-style: none; }
   }
 }
 
+/* ============= UTILITY ============= */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ============= SKIP LINK ============= */
 .skip-link {
   position: absolute; left: -9999px; top: 0;
@@ -1246,11 +1257,130 @@ ul, ol { list-style: none; }
 .pub.is-hidden { display: none; }
 
 /* ============= CV TIMELINE ============= */
+/* ===== Sticky chip nav (jump to CV section) ===== */
+.cv-chips {
+  position: sticky;
+  top: 94px;               /* clears the fixed main nav */
+  z-index: 50;
+  /* Glass effect — translucent so scrolled content shows faintly behind it */
+  background: rgba(255, 255, 255, 0.65);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+          backdrop-filter: blur(14px) saturate(180%);
+  border-bottom: 1px solid rgba(0, 27, 61, 0.10);
+  padding: 14px var(--pad);
+  transition: background-color .4s ease, border-color .4s ease;
+}
+[data-theme="night"] .cv-chips {
+  background: rgba(0, 27, 61, 0.65);
+  border-bottom-color: rgba(255, 255, 255, 0.10);
+}
+@media (max-width: 720px) {
+  .cv-chips { top: 56px; padding: 10px var(--pad); }
+}
+/* CV page only — tighten the main-padding so the chip bar sits flush under the nav */
+body[data-page="cv"] .page { padding-top: 94px; }
+.cv-chips__list {
+  list-style: none; margin: 0 auto; padding: 0;
+  max-width: var(--max);
+  display: flex; flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+/* Glass pill — translucent surface, soft border highlight, subtle drop shadow */
+.cv-chips__chip {
+  display: inline-flex; align-items: center;
+  padding: 9px 18px;
+  min-height: 38px;
+  border: 1px solid rgba(0, 27, 61, 0.12);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: .14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  box-shadow:
+    0 4px 16px rgba(0, 27, 61, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: color .25s, border-color .25s, background .25s, box-shadow .25s, transform .2s;
+}
+.cv-chips__chip:hover {
+  background: rgba(255, 255, 255, 0.78);
+  border-color: rgba(0, 27, 61, 0.20);
+  transform: translateY(-1px);
+  box-shadow:
+    0 6px 20px rgba(0, 27, 61, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+.cv-chips__chip.is-active {
+  color: var(--bg);
+  background: rgba(0, 27, 61, 0.92);
+  border-color: rgba(0, 27, 61, 0.92);
+  box-shadow:
+    0 6px 18px rgba(0, 27, 61, 0.30),
+    inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+[data-theme="night"] .cv-chips {
+  background: var(--brand-navy);
+  border-bottom-color: rgba(255,255,255,.12);
+}
+[data-theme="night"] .cv-chips__chip {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 4px 18px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+[data-theme="night"] .cv-chips__chip:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.30);
+  box-shadow:
+    0 6px 22px rgba(0, 0, 0, 0.30),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+[data-theme="night"] .cv-chips__chip.is-active {
+  background: rgba(245, 241, 232, 0.96);
+  color: var(--brand-navy);
+  border-color: rgba(245, 241, 232, 0.96);
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* Anchor offset so jump-to-section lands below the sticky chip bar */
+section.cv[id] { scroll-margin-top: 170px; }
+@media (max-width: 720px) {
+  section.cv[id] { scroll-margin-top: 116px; }
+}
+
 .cv {
   background: var(--bg);
   color: var(--ink);
-  padding: clamp(48px, 8vh, 100px) var(--pad);
+  padding: clamp(40px, 6vh, 80px) var(--pad);
 }
+.cv + .cv { padding-top: 0; }
+
+/* ===== End-of-page CTA (Download CV) ===== */
+.cv-cta {
+  background: var(--bg);
+  padding: clamp(40px, 8vh, 88px) var(--pad) clamp(56px, 10vh, 120px);
+  border-top: 1px solid var(--gray-200);
+  text-align: center;
+}
+.cv-cta__inner {
+  display: inline-flex; flex-direction: column; align-items: center;
+  gap: 14px;
+  max-width: var(--max);
+}
+.cv-cta__meta {
+  font-family: var(--font-mono);
+  font-size: 12px; letter-spacing: .08em;
+  color: var(--gray-500);
+}
+[data-theme="night"] .cv-cta { border-top-color: rgba(255,255,255,.12); }
 .cv .intro__chap { max-width: var(--max); margin: 0 auto 48px; }
 .cv__title {
   max-width: var(--max); margin: 0 auto;
@@ -1331,9 +1461,14 @@ ul, ol { list-style: none; }
 }
 .year-rail {
   position: sticky;
-  top: 80px;
+  /* clears fixed main nav (~94px) + sticky chip bar (~130px when wrapped to 2 rows) + 12px breathing room */
+  top: 236px;
   align-self: start;
-  max-height: calc(100vh - 100px);
+  max-height: calc(100vh - 256px);
+}
+/* On wide screens the chip bar is a single row (~64px), so the rail can sit higher */
+@media (min-width: 1180px) {
+  .year-rail { top: 172px; max-height: calc(100vh - 200px); }
 }
 .year-rail ol {
   list-style: none;
@@ -1374,6 +1509,21 @@ ul, ol { list-style: none; }
   font-weight: 700;
 }
 .year-rail button.is-on::before { height: 60%; }
+
+/* Visual gap separator in a year rail (e.g. Service jumps from 2021 → 2012) */
+.year-rail__gap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 6px 14px;
+  color: var(--gray-500);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: .12em;
+  opacity: .55;
+  user-select: none;
+  pointer-events: none;
+}
 
 /* offset so scrollIntoView lands below sticky top nav */
 .exp {
@@ -1517,6 +1667,32 @@ ul, ol { list-style: none; }
   font-weight: 700;
 }
 [data-theme="night"] .exp__pi-label { color: var(--brand-navy); }
+/* Thesis line (Education entries) — small italic note beneath the role */
+.exp__thesis {
+  display: flex; align-items: baseline; gap: 10px;
+  margin-top: 6px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+.exp__thesis-label { flex: 0 0 auto; }
+.exp__thesis em { flex: 1 1 auto; min-width: 0; }
+.exp__thesis-label {
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--brand-tc);
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+[data-theme="night"] .exp__thesis-label { color: var(--brand-navy); }
+.exp__thesis em { font-style: italic; }
+
 .exp__bullets {
   list-style: disc;
   margin: 6px 0 0;

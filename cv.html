@@ -26,7 +26,7 @@
 <meta name="twitter:description" content="Curriculum vitae of Robin Jephthah Rajarathinam — Ph.D. in Education (UIUC), seven years of research across CoLearn Lab, Immersive Data Lab, and the INVITE AI Institute." />
 <meta name="twitter:image" content="https://rjrthnm2.github.io/assets/robin-portrait.webp" />
 
-<link rel="stylesheet" href="styles.css?v=40" />
+<link rel="stylesheet" href="styles.css?v=52" />
 <link rel="icon" href="assets/favicon/favicon.ico" />
 <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#001B3D" />
 <meta name="msapplication-config" content="assets/favicon/browserconfig.xml" />
@@ -38,13 +38,22 @@
 <div id="nav-mount"></div>
 
 <main id="main" class="page">
-  <header class="page__header">
-    <div class="page__header-top"><span>— 02 / CV</span><a href="index.html">← Home</a></div>
-    <h1 class="page__title"><span>The career</span><span><i>journey.</i></span></h1>
-    <p class="page__lede">Twelve years in a single page.</p>
-  </header>
+  <h1 class="sr-only">Curriculum Vitae — Robin Jephthah Rajarathinam</h1>
 
-  <section class="cv">
+  <nav class="cv-chips" aria-label="Jump to section">
+    <ul class="cv-chips__list">
+      <li><a class="cv-chips__chip" href="#experience" data-target="experience">Experience</a></li>
+      <li><a class="cv-chips__chip" href="#education" data-target="education">Education</a></li>
+      <li><a class="cv-chips__chip" href="#skills" data-target="skills">Technical Skills</a></li>
+      <li><a class="cv-chips__chip" href="#awards" data-target="awards">Awards</a></li>
+      <li><a class="cv-chips__chip" href="#teaching" data-target="teaching">Teaching</a></li>
+      <li><a class="cv-chips__chip" href="#mentorship" data-target="mentorship">Mentorship</a></li>
+      <li><a class="cv-chips__chip" href="#talks" data-target="talks">Talks &amp; Presentations</a></li>
+      <li><a class="cv-chips__chip" href="#service" data-target="service">Service</a></li>
+    </ul>
+  </nav>
+
+  <section class="cv" id="experience">
     <h2 class="cv__section-h">Experience</h2>
     <div class="cv__layout">
       <aside class="year-rail" aria-label="Jump to year">
@@ -211,81 +220,443 @@
     </ol>
     </div>
 
-    <h2 class="cv__section-h cv__section-h--edu">Education</h2>
-    <ol class="edu-list">
-      <li class="edu">
-        <div class="edu__period">Aug 2021 — Aug 2025</div>
-        <div class="edu__body">
-          <h3 class="edu__deg"><b>Ph.D.</b> Curriculum &amp; Instruction</h3>
-          <p class="edu__org">University of Illinois Urbana-Champaign</p>
+  </section>
+
+  <section class="cv" id="education">
+    <h2 class="cv__section-h">Education</h2>
+    <ol class="exp-list">
+      <li class="exp">
+        <div class="exp__period">Aug 2021 — Aug 2025</div>
+        <div class="exp__body">
+          <h3 class="exp__org">University of Illinois Urbana-Champaign</h3>
+          <p class="exp__role">Ph.D. &mdash; Curriculum &amp; Instruction</p>
+          <p class="exp__thesis"><span class="exp__thesis-label">Thesis</span><em>Ranking features used in modeling student collaboration using multimodal learning analytics</em></p>
         </div>
       </li>
-      <li class="edu">
-        <div class="edu__period">Aug 2019 — May 2021</div>
-        <div class="edu__body">
-          <h3 class="edu__deg"><b>M.A.</b> Curriculum &amp; Instruction</h3>
-          <p class="edu__org">University of Illinois Urbana-Champaign</p>
+      <li class="exp">
+        <div class="exp__period">Aug 2019 — May 2021</div>
+        <div class="exp__body">
+          <h3 class="exp__org">University of Illinois Urbana-Champaign</h3>
+          <p class="exp__role">M.A. &mdash; Curriculum &amp; Instruction</p>
+          <p class="exp__thesis"><span class="exp__thesis-label">Thesis</span><em>Impact of monitoring of instructor on the conceptual understanding of students working on a collaborative task as a group</em></p>
         </div>
       </li>
-      <li class="edu">
-        <div class="edu__period">Aug 2013 — May 2018</div>
-        <div class="edu__body">
-          <h3 class="edu__deg"><b>M.S.</b> Mechanical Engineering</h3>
-          <p class="edu__org">The Grainger College of Engineering, UIUC</p>
+      <li class="exp">
+        <div class="exp__period">Aug 2013 — May 2018</div>
+        <div class="exp__body">
+          <h3 class="exp__org">University of Illinois Urbana-Champaign</h3>
+          <p class="exp__role">M.S. &mdash; Mechanical Engineering</p>
+        </div>
+      </li>
+      <li class="exp">
+        <div class="exp__period">Aug 2009 — May 2013</div>
+        <div class="exp__body">
+          <h3 class="exp__org">Anna University</h3>
+          <p class="exp__role">B.E. &mdash; Mechanical Engineering</p>
         </div>
       </li>
     </ol>
+  </section>
 
-    <div class="cv__download">
-      <a href="assets/FullCV_Faculty_v2.pdf" class="btn btn--gold" target="_blank" rel="noopener">Download full CV (PDF)<span aria-hidden="true">↓</span></a>
-      <span class="cv__download-meta">10 pages · faculty version · updated April 2026</span>
+  <section class="cv" id="skills">
+    <h2 class="cv__section-h">Technical Skills</h2>
+    <ol class="exp-list">
+      <li class="exp">
+        <div class="exp__period">Languages</div>
+        <div class="exp__body">
+          <h3 class="exp__org">Python &middot; R</h3>
+        </div>
+      </li>
+      <li class="exp">
+        <div class="exp__period">Machine learning</div>
+        <div class="exp__body">
+          <h3 class="exp__org">PyTorch &middot; TensorFlow &middot; scikit-learn</h3>
+        </div>
+      </li>
+      <li class="exp">
+        <div class="exp__period">Computer vision</div>
+        <div class="exp__body">
+          <h3 class="exp__org">OpenCV &middot; OpenFace &middot; OpenPose &middot; OpenSMILE</h3>
+        </div>
+      </li>
+      <li class="exp">
+        <div class="exp__period">Statistics</div>
+        <div class="exp__body">
+          <h3 class="exp__org">RStudio &middot; Mplus &middot; SPSS &middot; MATLAB &middot; Mathematica</h3>
+        </div>
+      </li>
+      <li class="exp">
+        <div class="exp__period">Design</div>
+        <div class="exp__body">
+          <h3 class="exp__org">Canva &middot; Claude Design</h3>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="cv" id="awards">
+    <h2 class="cv__section-h">Awards</h2>
+    <ol class="exp-list">
+      <li class="exp">
+        <div class="exp__period">2024</div>
+        <div class="exp__body">
+          <h3 class="exp__org">Best Short Paper &mdash; Honorable Mention</h3>
+          <p class="exp__role">17th International Conference on Educational Data Mining (EDM 2024)</p>
+          <p class="exp__meta">
+            <span class="exp__loc">International Educational Data Mining Society</span>
+          </p>
+        </div>
+      </li>
+
+      <li class="exp">
+        <div class="exp__period">2023</div>
+        <div class="exp__body">
+          <h3 class="exp__org">Best Short Paper &mdash; Honorable Mention</h3>
+          <p class="exp__role">13th International Learning Analytics &amp; Knowledge Conference (LAK 2023)</p>
+          <p class="exp__meta">
+            <span class="exp__loc">Society for Learning Analytics Research</span>
+          </p>
+        </div>
+      </li>
+
+      <li class="exp">
+        <div class="exp__period">2023</div>
+        <div class="exp__body">
+          <h3 class="exp__org">Graduate Student Travel Grant</h3>
+          <p class="exp__role">$500 &middot; College of Education</p>
+          <p class="exp__meta">
+            <span class="exp__loc">UIUC</span>
+          </p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="cv" id="teaching">
+    <h2 class="cv__section-h">Teaching</h2>
+    <div class="cv__layout">
+      <aside class="year-rail" aria-label="Jump to year">
+        <ol>
+          <li><button type="button" data-year="2023">2023</button></li>
+          <li><button type="button" data-year="2022">2022</button></li>
+          <li><button type="button" data-year="2018">2018</button></li>
+          <li><button type="button" data-year="2017">2017</button></li>
+          <li><button type="button" data-year="2016">2016</button></li>
+        </ol>
+      </aside>
+      <ol class="exp-list">
+        <li class="exp" data-years="2023">
+          <div class="exp__period">Spring 2023</div>
+          <div class="exp__body">
+            <h3 class="exp__org">EPSY 405 / PSYC 465 &middot; Personality &amp; Social Development</h3>
+            <p class="exp__role">Teaching Assistant &middot; Undergraduate / Graduate &middot; Hybrid</p>
+            <p class="exp__meta">
+              <span class="exp__loc">College of Education, UIUC</span>
+              <span class="exp__pi"><span class="exp__pi-label">Instructor</span><em>Dr. Nidia Ruedas-Gracia</em></span>
+            </p>
+          </div>
+        </li>
+
+        <li class="exp" data-years="2022">
+          <div class="exp__period">Fall 2022</div>
+          <div class="exp__body">
+            <h3 class="exp__org">CI 550 / EPSY 550 &middot; Methods of Educational Inquiry</h3>
+            <p class="exp__role">Teaching Assistant &middot; Graduate &middot; Hybrid</p>
+            <p class="exp__meta">
+              <span class="exp__loc">College of Education, UIUC</span>
+              <span class="exp__pi"><span class="exp__pi-label">Instructor</span><em>Dr. Kary Zarate</em></span>
+            </p>
+          </div>
+        </li>
+
+        <li class="exp" data-years="2017 2018">
+          <div class="exp__period">Spring 2017 — Spring 2018</div>
+          <div class="exp__body">
+            <h3 class="exp__org">TAM 251 &middot; Introductory Solid Mechanics</h3>
+            <p class="exp__role">Teaching Assistant &middot; Undergraduate</p>
+            <p class="exp__meta">
+              <span class="exp__loc">Grainger College of Engineering, UIUC</span>
+              <span class="exp__pi"><span class="exp__pi-label">Instructor</span><em>Dr. Mariana Silva</em></span>
+            </p>
+          </div>
+        </li>
+
+        <li class="exp" data-years="2017">
+          <div class="exp__period">Summer 2017</div>
+          <div class="exp__body">
+            <h3 class="exp__org">TAM 251 &middot; Introductory Solid Mechanics</h3>
+            <p class="exp__role">Graduate Student Lecturer &middot; Undergraduate</p>
+            <p class="exp__meta">
+              <span class="exp__loc">Grainger College of Engineering, UIUC</span>
+              <span class="exp__pi"><span class="exp__pi-label">Mentor</span><em>Dr. Mariana Silva</em></span>
+            </p>
+          </div>
+        </li>
+
+        <li class="exp" data-years="2017">
+          <div class="exp__period">Spring 2017</div>
+          <div class="exp__body">
+            <h3 class="exp__org">TAM 435 &middot; Intermediate Fluid Mechanics</h3>
+            <p class="exp__role">Teaching Assistant &middot; Undergraduate / Graduate</p>
+            <p class="exp__meta">
+              <span class="exp__loc">Grainger College of Engineering, UIUC</span>
+              <span class="exp__pi"><span class="exp__pi-label">Instructor</span><em>Dr. Moshe Matalon</em></span>
+            </p>
+          </div>
+        </li>
+
+        <li class="exp" data-years="2016">
+          <div class="exp__period">Fall 2016</div>
+          <div class="exp__body">
+            <h3 class="exp__org">TAM 210 / 211 &middot; Statics</h3>
+            <p class="exp__role">Teaching Assistant &middot; Undergraduate</p>
+            <p class="exp__meta">
+              <span class="exp__loc">Grainger College of Engineering, UIUC</span>
+              <span class="exp__pi"><span class="exp__pi-label">Instructor</span><em>Dr. Mariana Silva</em></span>
+            </p>
+          </div>
+        </li>
+      </ol>
     </div>
   </section>
 
-  <section class="grid-tabs">
-    <h3 class="grid-tabs__heading">Teaching, mentorship &amp; service</h3>
-    <div class="grid-tabs__grid">
-      <div class="gt-card">
-        <span class="t-eyebrow">Teaching</span>
-        <h4>Six undergraduate &amp; graduate courses, taught</h4>
-        <ul>
-          <li>EPSY 405 / PSYC 465 — Personality &amp; Social Development</li>
-          <li>CI 550 / EPSY 550 — Methods of Educational Inquiry</li>
-          <li>TAM 251 — Introductory Solid Mechanics <i>(also lecturer)</i></li>
-          <li>TAM 210 / 211 — Statics</li>
-          <li>TAM 435 — Intermediate Fluid Mechanics</li>
-        </ul>
-      </div>
-      <div class="gt-card">
-        <span class="t-eyebrow">Mentorship</span>
-        <h4>Four undergraduate researchers, advised</h4>
-        <ul>
-          <li>Jacob Frank Sobel · CEASAR &amp; HoloOrbits annotation</li>
-          <li>Gabby Potocki · multimodal coding</li>
-          <li>James Park · reliable coding for collaborative interactions</li>
-          <li>Braedyn Bailis &amp; Grace Kraft · TA lesson-planning support</li>
-        </ul>
-      </div>
-      <div class="gt-card">
-        <span class="t-eyebrow">Service</span>
-        <h4>Co-chair, College of Education GSC</h4>
-        <ul>
-          <li>Led a team of 15 organizing a 200+ attendee conference</li>
-          <li>Reviewer: AERA · LAK · EDM · CSCL · ICLS · LSGSC</li>
-          <li>Graduate rep, faculty search committee · CS Education, UIUC</li>
-          <li>WPGU radio segment on collaborative learning, 2023</li>
-        </ul>
-      </div>
-      <div class="gt-card gt-card--dark">
-        <span class="t-eyebrow t-eyebrow--gold">Tooling</span>
-        <h4>The toolkit</h4>
-        <p class="gt-card__p"><b>Languages</b> — Python, R<br/><b>ML</b> — PyTorch, TensorFlow, scikit-learn<br/><b>CV</b> — OpenCV, OpenFace, OpenPose, OpenSMILE<br/><b>Stats</b> — RStudio, Mplus, SPSS, MATLAB, Mathematica<br/><b>Design</b> — Canva, Squarespace, Figma</p>
-      </div>
+  <section class="cv" id="mentorship">
+    <h2 class="cv__section-h">Mentorship</h2>
+    <ol class="exp-list">
+      <li class="exp">
+        <div class="exp__period">Spring 2024 — Spring 2025</div>
+        <div class="exp__body">
+          <h3 class="exp__org">Jacob Frank Sobel</h3>
+          <p class="exp__role">Undergraduate Researcher &middot; Annotation of collaborative behaviors</p>
+          <p class="exp__meta">
+            <span class="exp__loc">UIUC</span>
+            <span class="exp__pi"><span class="exp__pi-label">Project</span><em>CEASAR &middot; HoloOrbits</em></span>
+          </p>
+        </div>
+      </li>
+
+      <li class="exp">
+        <div class="exp__period">Spring 2024 — Summer 2024</div>
+        <div class="exp__body">
+          <h3 class="exp__org">Gabby Potocki</h3>
+          <p class="exp__role">Undergraduate Researcher &middot; Annotation of collaborative behaviors</p>
+          <p class="exp__meta">
+            <span class="exp__loc">UIUC</span>
+            <span class="exp__pi"><span class="exp__pi-label">Project</span><em>CEASAR &middot; HoloOrbits</em></span>
+          </p>
+        </div>
+      </li>
+
+      <li class="exp">
+        <div class="exp__period">Fall 2023</div>
+        <div class="exp__body">
+          <h3 class="exp__org">Braedyn Sydney Bailis</h3>
+          <p class="exp__role">Undergraduate Assistant &middot; Lesson-planning support for engineering TAs</p>
+          <p class="exp__meta">
+            <span class="exp__loc">UIUC</span>
+            <span class="exp__pi"><span class="exp__pi-label">Project</span><em>TA Pedagogy</em></span>
+          </p>
+        </div>
+      </li>
+
+      <li class="exp">
+        <div class="exp__period">Fall 2023</div>
+        <div class="exp__body">
+          <h3 class="exp__org">Grace Kraft</h3>
+          <p class="exp__role">Undergraduate Assistant &middot; Lesson-planning support for engineering TAs</p>
+          <p class="exp__meta">
+            <span class="exp__loc">UIUC</span>
+            <span class="exp__pi"><span class="exp__pi-label">Project</span><em>TA Pedagogy</em></span>
+          </p>
+        </div>
+      </li>
+
+      <li class="exp">
+        <div class="exp__period">Spring 2023 — Fall 2023</div>
+        <div class="exp__body">
+          <h3 class="exp__org">Jacob Frank Sobel</h3>
+          <p class="exp__role">Undergraduate Researcher &middot; Reliable coding for collaborative interactions</p>
+          <p class="exp__meta">
+            <span class="exp__loc">UIUC</span>
+            <span class="exp__pi"><span class="exp__pi-label">Project</span><em>Collaborative Interactions</em></span>
+          </p>
+        </div>
+      </li>
+
+      <li class="exp">
+        <div class="exp__period">Spring 2023 — Fall 2023</div>
+        <div class="exp__body">
+          <h3 class="exp__org">James Park</h3>
+          <p class="exp__role">Undergraduate Researcher &middot; Reliable coding for collaborative interactions</p>
+          <p class="exp__meta">
+            <span class="exp__loc">UIUC</span>
+            <span class="exp__pi"><span class="exp__pi-label">Project</span><em>Collaborative Interactions</em></span>
+          </p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="cv" id="talks">
+    <h2 class="cv__section-h">Talks &amp; Presentations</h2>
+    <ol class="exp-list">
+      <li class="exp">
+        <div class="exp__period">Fall 2023</div>
+        <div class="exp__body">
+          <h3 class="exp__org">My Ph.D. Journey</h3>
+          <p class="exp__role">Invited Lecture &middot; CI 536 (Graduate Course) &middot; 10+ Ph.D. students</p>
+          <p class="exp__meta">
+            <span class="exp__loc">UIUC</span>
+          </p>
+        </div>
+      </li>
+
+      <li class="exp">
+        <div class="exp__period">April 2022</div>
+        <div class="exp__body">
+          <h3 class="exp__org">Impact of Instructor Intervention on the Conceptual Understanding of Undergraduate Engineering Students Working in a Group</h3>
+          <p class="exp__role">Conference Poster</p>
+          <p class="exp__meta">
+            <span class="exp__loc">AERA Annual Meeting, San Diego, CA</span>
+          </p>
+        </div>
+      </li>
+
+      <li class="exp">
+        <div class="exp__period">November 2021</div>
+        <div class="exp__body">
+          <h3 class="exp__org">Designing Collaborative Problem-Based Discussion Tasks</h3>
+          <p class="exp__role">Symposium Talk &middot; Stronger Together: Increasing Student Learning Through Collaborative Activities</p>
+          <p class="exp__meta">
+            <span class="exp__loc">AE3 Lightning Symposium, UIUC</span>
+          </p>
+        </div>
+      </li>
+
+      <li class="exp">
+        <div class="exp__period">November 2021</div>
+        <div class="exp__body">
+          <h3 class="exp__org">Impact of Instructor Intervention on the Conceptual Understanding of Undergraduate Engineering Students Working in a Group</h3>
+          <p class="exp__role">Conference Poster</p>
+          <p class="exp__meta">
+            <span class="exp__loc">Learning Sciences Graduate Student Conference, Champaign, IL</span>
+          </p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="cv" id="service">
+    <h2 class="cv__section-h">Service</h2>
+    <div class="cv__layout">
+      <aside class="year-rail" aria-label="Jump to year">
+        <ol>
+          <li><button type="button" data-year="2024">2024</button></li>
+          <li><button type="button" data-year="2023">2023</button></li>
+          <li><button type="button" data-year="2022">2022</button></li>
+          <li><button type="button" data-year="2021">2021</button></li>
+          <li class="year-rail__gap" aria-hidden="true">&#x22EE;</li>
+          <li><button type="button" data-year="2012">2012</button></li>
+        </ol>
+      </aside>
+      <ol class="exp-list">
+        <li class="exp">
+          <div class="exp__period">Ongoing</div>
+          <div class="exp__body">
+            <h3 class="exp__org">Conference Reviewer</h3>
+            <p class="exp__role">AERA &middot; CSCL &middot; ICLS &middot; LSGSC &middot; LAK &middot; EDM</p>
+          </div>
+        </li>
+
+        <li class="exp" data-years="2023 2024">
+          <div class="exp__period">2023 — 2024</div>
+          <div class="exp__body">
+            <h3 class="exp__org">Co-chair, College of Education Graduate Student Conference</h3>
+            <p class="exp__role">Led a team of 15 organizing a 200+ attendee academic conference</p>
+            <p class="exp__meta">
+              <span class="exp__loc">UIUC</span>
+            </p>
+          </div>
+        </li>
+
+        <li class="exp" data-years="2023">
+          <div class="exp__period">2023</div>
+          <div class="exp__body">
+            <h3 class="exp__org">Graduate Student Representative, Faculty Search Committee</h3>
+            <p class="exp__role">Open-rank CS Education faculty search</p>
+            <p class="exp__meta">
+              <span class="exp__loc">UIUC</span>
+            </p>
+          </div>
+        </li>
+
+        <li class="exp" data-years="2023">
+          <div class="exp__period">2023</div>
+          <div class="exp__body">
+            <h3 class="exp__org">WPGU Radio Segment</h3>
+            <p class="exp__role">Featured in a 30-minute segment on collaborative learning in modern education</p>
+            <p class="exp__meta">
+              <span class="exp__loc">WPGU 107.1 FM, Champaign IL</span>
+            </p>
+          </div>
+        </li>
+
+        <li class="exp" data-years="2022 2023">
+          <div class="exp__period">2022 — 2023</div>
+          <div class="exp__body">
+            <h3 class="exp__org">Event Schedule Committee Chair, Graduate Student Conference</h3>
+            <p class="exp__role">Oversaw the conference schedule, balancing topics and speakers</p>
+            <p class="exp__meta">
+              <span class="exp__loc">UIUC</span>
+            </p>
+          </div>
+        </li>
+
+        <li class="exp" data-years="2021 2022">
+          <div class="exp__period">2021 — 2022</div>
+          <div class="exp__body">
+            <h3 class="exp__org">Review Committee Member, Learning Sciences Graduate Student Conference</h3>
+            <p class="exp__role">Evaluated and selected academic papers for presentation</p>
+            <p class="exp__meta">
+              <span class="exp__loc">UIUC</span>
+            </p>
+          </div>
+        </li>
+
+        <li class="exp" data-years="2012">
+          <div class="exp__period">2012</div>
+          <div class="exp__body">
+            <h3 class="exp__org">Coordinator, PINNACLE Technical Symposium</h3>
+            <p class="exp__role">Nation-level symposium for mechanical engineers</p>
+            <p class="exp__meta">
+              <span class="exp__loc">Anna University, Chennai</span>
+            </p>
+          </div>
+        </li>
+
+        <li class="exp" data-years="2012">
+          <div class="exp__period">2012</div>
+          <div class="exp__body">
+            <h3 class="exp__org">Workshop Organizer, &ldquo;Auto-Anatomy&rdquo; at Kurukshetra&rsquo;12</h3>
+            <p class="exp__role">Techno-management fest</p>
+            <p class="exp__meta">
+              <span class="exp__loc">Anna University, Chennai</span>
+            </p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="cv-cta">
+    <div class="cv-cta__inner">
+      <a href="assets/FullCV_Faculty_v2.pdf" class="btn btn--gold" target="_blank" rel="noopener">Download full CV (PDF)<span aria-hidden="true">↓</span></a>
+      <span class="cv-cta__meta">Updated April 2026</span>
     </div>
   </section>
 </main>
 
 <div id="footer-mount"></div>
-<script src="script.js?v=40"></script>
+<script src="script.js?v=52"></script>
 </body>
 </html>

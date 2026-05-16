@@ -12,15 +12,15 @@ just hand-written HTML, CSS, and JavaScript served directly by GitHub Pages.
 | --------------- | ---------------------- | ------------------------------------------------------------- |
 | Home / About    | `index.html`           | Hero with portrait, intro, "where to next" cards              |
 | Publications    | `publications.html`    | Filterable papers list (journal / conference / chapter)       |
-| CV              | `cv.html`              | Education + appointments timeline, teaching/service grid, PDF |
+| CV              | `cv.html`              | Sticky chip nav across 8 sections (experience, education, technical skills, awards, teaching, mentorship, talks & presentations, service) with per-section year rails on Experience / Teaching / Service, plus PDF download |
 | Contact         | `contact.html`         | Big mailto, affiliations, links                               |
 | Privacy         | `privacy.html`         | "What this site collects: nothing"                            |
 | Accessibility   | `accessibility.html`   | WCAG 2.2 AA statement, feature list                           |
 | 404             | `404.html`             | Branded "wandered off" page with nav grid                     |
 
 Shared chrome — top nav with live Central-Time clock, day/night theme
-toggle, footer — is injected by `script.js`, so each page only contains
-its own content.
+toggle, three-column footer with social icons — is injected by
+`script.js`, so each page only contains its own content.
 
 ## Repo layout
 

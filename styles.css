@@ -463,6 +463,12 @@ ul, ol { list-style: none; }
   background: #FAF8F4;
   border-color: rgba(0, 27, 61, 0.20);
 }
+/* Home page day mode: hero is now white, so the toggle track needs the
+   same light treatment as .nav--light on the other pages. */
+[data-theme="day"] body[data-page="home"] .theme-toggle__track {
+  background: rgba(0, 27, 61, 0.10);
+  border-color: rgba(0, 27, 61, 0.20);
+}
 [data-theme="night"] .theme-toggle__thumb {
   left: calc(100% - 26px);
   background: var(--brand-navy);
@@ -525,8 +531,8 @@ ul, ol { list-style: none; }
 .hero__title {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(72px, 11vw, 168px);
-  line-height: .92;
+  font-size: clamp(64px, 9vw, 132px);
+  line-height: .94;
   letter-spacing: -.025em;
   color: var(--ink);
   margin: 0;
@@ -682,7 +688,7 @@ ul, ol { list-style: none; }
   .hero--home { padding: 130px var(--pad) 24px; }
   .hero__content { grid-template-columns: 1fr; gap: 40px; }
   .hero__portrait { justify-self: start; width: min(100%, 380px); }
-  .hero__title { font-size: clamp(64px, 16vw, 110px); }
+  .hero__title { font-size: clamp(56px, 13vw, 92px); }
   .hero__bottom { grid-template-columns: 1fr; }
   .hero__credits { grid-template-columns: 1fr 1fr; gap: 18px; }
 }

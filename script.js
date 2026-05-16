@@ -241,28 +241,28 @@
   }, { threshold: 0.25 });
   $$('[data-reveal-up]').forEach(el => revealIo.observe(el));
 
-  /* ---------- CV YEAR RAIL ---------- */
-  const railBtns = $$('.year-rail [data-year]');
-  const exps = $$('.exp[data-years]');
-  if (railBtns.length && exps.length) {
+  /* ---------- CV YEAR RAILS (per-section) ---------- */
+  $$('.cv__layout').forEach((layout) => {
+    const railBtns = $$('.year-rail [data-year]', layout);
+    const exps = $$('.exp[data-years]', layout);
+    if (!railBtns.length || !exps.length) return;
+
     let arrivalTimer = null;
-    // Click → scroll to first experience that includes that year + arrival flash
+    // Click → scroll to first matching exp within THIS section + arrival flash
     railBtns.forEach((btn) => {
       btn.addEventListener('click', () => {
         const y = btn.dataset.year;
         const target = exps.find((e) => (e.dataset.years || '').split(/\s+/).includes(y));
         if (!target) return;
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        // Strip any previous flash and re-trigger the gold left-bar
         exps.forEach((e) => e.classList.remove('is-just-arrived'));
         clearTimeout(arrivalTimer);
-        // small delay so the class change happens after scroll begins
         requestAnimationFrame(() => target.classList.add('is-just-arrived'));
         arrivalTimer = setTimeout(() => target.classList.remove('is-just-arrived'), 1200);
       });
     });
-    // Scroll → highlight all years the in-view experience spans.
-    // Active = the latest exp whose top has crossed the pivot line.
+
+    // Scroll → highlight all years the in-view exp spans (within this section).
     const onCv = () => {
       const pivot = innerHeight * 0.30;
       let active = null;
@@ -270,7 +270,7 @@
         if (e.getBoundingClientRect().top <= pivot) active = e;
         else break;
       }
-      if (!active) active = exps[0]; // before scroll: first exp
+      if (!active) active = exps[0];
       const activeYears = new Set((active.dataset.years || '').split(/\s+/));
       railBtns.forEach((b) => {
         const on = activeYears.has(b.dataset.year);
@@ -280,7 +280,7 @@
     };
     window.addEventListener('scroll', onCv, { passive: true });
     onCv();
-  }
+  });
 
   /* ---------- PHILOSOPHY ---------- */
   const philText = $('#philText');
@@ -308,6 +308,52 @@
       pubs.forEach(p => p.classList.toggle('is-hidden', !(f === 'all' || p.dataset.cat === f)));
     });
   });
+
+  /* ---------- CV SECTION CHIPS (scroll-spy) ---------- */
+  const cvChips = $$('.cv-chips__chip');
+  if (cvChips.length) {
+    const chipMap = new Map();
+    cvChips.forEach((c) => {
+      const id = c.dataset.target;
+      const sec = document.getElementById(id);
+      if (sec) chipMap.set(sec, c);
+    });
+    if (chipMap.size) {
+      const setActive = (target) => {
+        cvChips.forEach((c) => {
+          const on = c.dataset.target === target;
+          c.classList.toggle('is-active', on);
+          if (on) c.setAttribute('aria-current', 'true');
+          else c.removeAttribute('aria-current');
+        });
+      };
+      const sections = [...chipMap.keys()];
+      const cvIo = new IntersectionObserver((entries) => {
+        // Pick the entry whose section is most visible near the top of the viewport.
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible.length) {
+          const winner = visible[0].target;
+          setActive(chipMap.get(winner).dataset.target);
+        }
+      }, { rootMargin: '-110px 0px -65% 0px', threshold: 0 });
+      sections.forEach((s) => cvIo.observe(s));
+
+      // Smooth-scroll on chip click without jumping past the sticky offset.
+      cvChips.forEach((c) => {
+        c.addEventListener('click', (e) => {
+          const id = c.dataset.target;
+          const sec = document.getElementById(id);
+          if (!sec) return;
+          e.preventDefault();
+          history.replaceState(null, '', '#' + id);
+          sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          setActive(id);
+        });
+      });
+    }
+  }
 
   /* ---------- LANDING CLOCK ---------- */
   const lTime = $('#landingTime');

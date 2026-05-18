@@ -309,6 +309,30 @@
     });
   });
 
+  /* ---------- CV CHIP-BAR HEIGHT (drives section scroll offset) ----------
+     The chip bar wraps to 1, 2, or 3 rows depending on viewport width.
+     We measure it live and publish (sticky-top + offsetHeight + breathing)
+     as a CSS variable, so scroll-margin-top on each #section stays correct
+     for both URL-hash navigation and the smooth-scroll handler below. */
+  const cvChipBar = document.querySelector('.cv-chips');
+  if (cvChipBar) {
+    const syncChipOffset = () => {
+      const cs = getComputedStyle(cvChipBar);
+      const stickyTop = parseFloat(cs.top) || 0;
+      const barHeight = cvChipBar.offsetHeight;
+      const breathing = 14;
+      document.documentElement.style.setProperty(
+        '--cv-section-offset',
+        (stickyTop + barHeight + breathing) + 'px'
+      );
+    };
+    syncChipOffset();
+    window.addEventListener('resize', syncChipOffset, { passive: true });
+    if ('ResizeObserver' in window) {
+      new ResizeObserver(syncChipOffset).observe(cvChipBar);
+    }
+  }
+
   /* ---------- CV SECTION CHIPS (scroll-spy) ---------- */
   const cvChips = $$('.cv-chips__chip');
   if (cvChips.length) {

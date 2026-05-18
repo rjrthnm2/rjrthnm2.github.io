@@ -26,7 +26,7 @@
 <meta name="twitter:description" content="Accessibility statement for rjrthnm2.github.io." />
 <meta name="twitter:image" content="https://rjrthnm2.github.io/assets/robin-portrait.webp" />
 
-<link rel="stylesheet" href="styles.css?v=52" />
+<link rel="stylesheet" href="styles.css?v=56" />
 <link rel="icon" href="assets/favicon/favicon.ico" />
 <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#001B3D" />
 <meta name="msapplication-config" content="assets/favicon/browserconfig.xml" />
@@ -52,8 +52,9 @@
     <ul class="prose__list">
       <li><strong>Semantic structure</strong> — every page uses <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code>, and <code>&lt;footer&gt;</code> landmarks. Headings are hierarchical: one <code>&lt;h1&gt;</code> per page, with <code>&lt;h2&gt;</code>/<code>&lt;h3&gt;</code> below.</li>
       <li><strong>Skip link</strong> — pressing Tab on any page surfaces a "Skip to main content" link as the first focusable element.</li>
-      <li><strong>Keyboard navigation</strong> — every interactive element (links, hamburger toggle, year-rail buttons, publication filter chips) is reachable and operable with a keyboard. Escape closes the mobile menu.</li>
-      <li><strong>Current page indication</strong> — the active nav link carries <code>aria-current="page"</code> in addition to its visual styling.</li>
+      <li><strong>Keyboard navigation</strong> — every interactive element (links, hamburger toggle, day/night theme toggle, CV section chips, year-rail buttons, publication filter chips) is reachable and operable with a keyboard. Escape closes the mobile menu.</li>
+      <li><strong>Current page &amp; section indication</strong> — the active top-nav link carries <code>aria-current="page"</code>, and the CV's sticky section chip carries <code>aria-current="true"</code> as you scroll past each section, in addition to their visual styling.</li>
+      <li><strong>Day / night theme</strong> — pill toggle in the top nav (<code>role="switch"</code>, with <code>aria-checked</code> reflecting the current mode and an <code>aria-label</code> describing the next action). Mode persists across visits and respects the OS <code>prefers-color-scheme</code> on first load.</li>
       <li><strong>Color contrast</strong> — body text meets the 4.5 : 1 AA threshold against its background; large display text meets the 3 : 1 large-text threshold.</li>
       <li><strong>Touch-target size</strong> — interactive elements are at least 44 × 44 px on touch devices, meeting WCAG 2.5.5.</li>
       <li><strong>Reduced motion</strong> — when the operating system requests reduced motion, the long fade-in animations, the pulsing "available for work" dot, and the year-rail tick are disabled.</li>
@@ -65,8 +66,8 @@
 
     <h2>Known limitations</h2>
     <ul class="prose__list">
-      <li>The CV year-rail's "click to scroll to that year" feature relies on JavaScript. With JS disabled, all the experience entries are still readable in normal page flow — the rail just becomes static labels.</li>
-      <li>The mobile menu drawer relies on JavaScript. With JS disabled, all four pages are reachable through the in-page links and the footer.</li>
+      <li>The CV's section chip nav and year-rail scroll-jump features rely on JavaScript. With JS disabled, the chips degrade to standard in-page anchor links and the year-rail labels become static — all section content remains fully readable in normal page flow.</li>
+      <li>The mobile menu drawer and the day/night theme toggle rely on JavaScript. With JS disabled, the site defaults to day mode and the nav links are still reachable via the page's footer.</li>
       <li>Honest disclosure: I have not yet had this site evaluated by a third-party accessibility specialist, nor tested it with every assistive technology. If you encounter a barrier, please tell me.</li>
     </ul>
 
@@ -82,11 +83,11 @@
     <h2>Report a barrier</h2>
     <p>If something on this site is not usable for you, I want to know. Email <a href="mailto:robinzjephthah@gmail.com">robinzjephthah@gmail.com</a> with a short description of what happened, what you expected, and (if you can) which page and which assistive technology you were using. I'll respond within a few working days.</p>
 
-    <p class="prose__updated">Last updated April 2026.</p>
+    <p class="prose__updated">Last updated May 2026.</p>
   </section>
 </main>
 
 <div id="footer-mount"></div>
-<script src="script.js?v=52"></script>
+<script src="script.js?v=56"></script>
 </body>
 </html>

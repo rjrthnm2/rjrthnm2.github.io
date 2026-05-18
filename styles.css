@@ -490,6 +490,52 @@ ul, ol { list-style: none; }
   .theme-toggle__track, .theme-toggle__thumb, .theme-toggle__thumb svg { transition: none; }
 }
 
+/* ============= BACKGROUND EFFECTS =============
+   Aurora — soft drifting color blobs behind the home hero only.
+   Gated by --aurora-opacity so it can be killed instantly via
+       body[data-bg="off"]
+   Respects prefers-reduced-motion (motion stops, blobs stay). */
+:root { --aurora-opacity: 0.12; }
+body[data-bg="off"] { --aurora-opacity: 0; }
+
+/* isolation: isolate scopes the z-index: -1 blobs so they sit behind
+   the hero's own grid/text but never bleed outside the hero. */
+.hero--home { isolation: isolate; }
+.hero--home::before,
+.hero--home::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  opacity: var(--aurora-opacity);
+  z-index: -1;
+}
+.hero--home::before {
+  background: var(--brand-tc);
+  width: 70vw; height: 70vw;
+  top: -25%; left: -15%;
+  animation: auroraDrift1 60s ease-in-out infinite;
+}
+.hero--home::after {
+  background: var(--brand-gold);
+  width: 60vw; height: 60vw;
+  top: 25%; right: -20%;
+  animation: auroraDrift2 80s ease-in-out infinite reverse;
+}
+@keyframes auroraDrift1 {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(12vw, 8vh); }
+}
+@keyframes auroraDrift2 {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(-10vw, 12vh); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero--home::before,
+  .hero--home::after { animation: none; }
+}
+
 /* ============= HERO (HOME) ============= */
 .hero--home {
   position: relative;
@@ -1350,10 +1396,14 @@ body[data-page="cv"] .page { padding-top: 94px; }
     inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
-/* Anchor offset so jump-to-section lands below the sticky chip bar */
-section.cv[id] { scroll-margin-top: 170px; }
+/* Anchor offset so jump-to-section lands below the sticky chip bar.
+   --cv-section-offset is computed in JS from the chip bar's live
+   sticky `top` + offsetHeight + breathing room, so this stays correct
+   no matter how many rows the chip bar wraps to. The fallback values
+   match a single-row chip bar in case JS hasn't run yet. */
+section.cv[id] { scroll-margin-top: var(--cv-section-offset, 170px); }
 @media (max-width: 720px) {
-  section.cv[id] { scroll-margin-top: 116px; }
+  section.cv[id] { scroll-margin-top: var(--cv-section-offset, 116px); }
 }
 
 .cv {

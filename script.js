@@ -108,7 +108,13 @@
       syncTheme(document.documentElement.getAttribute('data-theme') || 'day');
       themeToggle.addEventListener('click', () => {
         const next = document.documentElement.getAttribute('data-theme') === 'night' ? 'day' : 'night';
-        syncTheme(next);
+        // Cross-fade the whole page between themes where supported
+        if (document.startViewTransition &&
+            !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.startViewTransition(() => syncTheme(next));
+        } else {
+          syncTheme(next);
+        }
       });
     }
   }

@@ -2546,3 +2546,63 @@ section.cv[id] { scroll-margin-top: var(--cv-section-offset, 170px); }
 [data-theme="day"] body[data-page="home"] .nav { color: var(--brand-navy); }
 [data-theme="day"] body[data-page="home"] .nav__logo .logo-dark { opacity: 0; }
 [data-theme="day"] body[data-page="home"] .nav__logo .logo-light { opacity: 1; }
+
+/* ============= POLISH (cross-fade, subpage aurora, micro-interactions) ============= */
+
+/* Theme switch cross-fades via the View Transitions API (script.js wraps
+   the toggle in startViewTransition; unsupported browsers just snap). */
+::view-transition-old(root),
+::view-transition-new(root) { animation-duration: .4s; }
+
+/* Subpage header aurora — same gradient blobs as the home hero at roughly
+   half strength. Shares --aurora-opacity, so body[data-bg="off"] kills it. */
+.page__header { position: relative; isolation: isolate; overflow: hidden; }
+.page__header::before,
+.page__header::after {
+  content: ""; position: absolute; border-radius: 50%;
+  pointer-events: none; z-index: -1;
+  opacity: calc(var(--aurora-opacity) * .5);
+}
+.page__header::before {
+  background: radial-gradient(circle closest-side, var(--brand-tc) 0%, transparent 72%);
+  width: 46vw; height: 46vw;
+  top: -70%; left: -8%;
+  animation: auroraDrift1 60s ease-in-out infinite;
+}
+.page__header::after {
+  background: radial-gradient(circle closest-side, var(--brand-gold) 0%, transparent 72%);
+  width: 38vw; height: 38vw;
+  top: -35%; right: -10%;
+  animation: auroraDrift2 80s ease-in-out infinite reverse;
+}
+
+/* Prose links draw a thicker underline left-to-right on hover
+   (the resting 1px text-decoration underline stays for affordance). */
+.prose a {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 calc(100% - 1px);
+  background-size: 0% 2px;
+  transition: background-size .3s var(--ease-out), color .2s;
+}
+.prose a:hover { background-size: 100% 2px; }
+
+/* Button arrows nudge in their pointing direction */
+.btn span { transition: transform .25s var(--ease-out); }
+.btn--gold:hover span { transform: translateX(4px); }
+.btn--ghost:hover span { transform: translateY(3px); }
+
+/* Footer connect pills lift slightly */
+.footer__icon {
+  transition: color .2s, border-color .2s, background .2s,
+              transform .25s var(--ease-out);
+}
+.footer__icon:hover { transform: translateY(-2px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .page__header::before,
+  .page__header::after { animation: none; }
+  .prose a, .btn span, .footer__icon { transition: none; }
+  .btn--gold:hover span, .btn--ghost:hover span,
+  .footer__icon:hover { transform: none; }
+}

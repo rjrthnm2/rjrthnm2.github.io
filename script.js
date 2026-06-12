@@ -216,11 +216,42 @@
   }
 
   /* ---------- REVEAL ---------- */
+  // Tag reveal targets at runtime (not in the HTML) so content is never
+  // stuck hidden when JS is unavailable.
+  const REVEAL_TARGETS = [
+    '.intro__copy p',
+    '.intro__side',
+    '.home-nav__head',
+    '.home-nav__card',
+    '.pubs__head',
+    '.pub',
+    '.cv__section-h',
+    '.exp',
+    '.cv-cta'
+  ];
+  const revealTagged = [];
+  REVEAL_TARGETS.forEach((sel) => {
+    $$(sel).forEach((el, i) => {
+      // transition:none while tagging so elements snap (not fade) to their
+      // hidden state if a paint already happened before this script ran.
+      el.style.transition = 'none';
+      el.setAttribute('data-reveal-up', '');
+      revealTagged.push([el, sel === '.home-nav__card' ? i * 90 : 0]);
+    });
+  });
+
   const revealIo = new IntersectionObserver((entries) => {
     entries.forEach((en) => {
       if (!en.isIntersecting) return;
       const el = en.target;
       el.classList.add('is-in');
+      // Once revealed, drop the attribute so the element's own hover
+      // transitions (.pub padding, card colors) take back over.
+      setTimeout(() => {
+        el.removeAttribute('data-reveal-up');
+        el.classList.remove('is-in');
+        el.style.transitionDelay = '';
+      }, 1100);
       const numEl = el.querySelector('[data-count]');
       if (numEl && !numEl.dataset.done) {
         numEl.dataset.done = '1';
@@ -239,7 +270,21 @@
       revealIo.unobserve(el);
     });
   }, { threshold: 0.25 });
-  $$('[data-reveal-up]').forEach(el => revealIo.observe(el));
+  // Re-enable transitions (and apply the nav-card stagger) one frame after
+  // the hidden state has painted, then start observing. setTimeout fallback
+  // covers contexts where rAF is throttled.
+  let revealArmed = false;
+  const armReveal = () => {
+    if (revealArmed) return;
+    revealArmed = true;
+    revealTagged.forEach(([el, delay]) => {
+      el.style.transition = '';
+      if (delay) el.style.transitionDelay = delay + 'ms';
+      revealIo.observe(el);
+    });
+  };
+  requestAnimationFrame(() => requestAnimationFrame(armReveal));
+  setTimeout(armReveal, 400);
 
   /* ---------- CV YEAR RAILS (per-section) ---------- */
   $$('.cv__layout').forEach((layout) => {

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<script>(function(){try{var t=localStorage.getItem("theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"night":"day");document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>A small model learns to teach — Robin Jephthah Rajarathinam</title>
+<meta name="description" content="Fine-tuning Microsoft Phi-3 to replicate a GPT-4o tutor inside an immersive astronomy simulation: 85% replication, and systematic failure modes worth knowing. A plain-language project story." />
+<link rel="canonical" href="https://rjrthnm2.github.io/project-phi3-tutor.html" />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="A small model learns to teach — Robin Jephthah Rajarathinam" />
+<meta property="og:description" content="Fine-tuning Microsoft Phi-3 to replicate a GPT-4o tutor: 85% replication, and systematic failure modes worth knowing." />
+<meta property="og:url" content="https://rjrthnm2.github.io/project-phi3-tutor.html" />
+<meta property="og:site_name" content="Robin Jephthah Rajarathinam" />
+<meta name="twitter:card" content="summary" />
+<link rel="stylesheet" href="styles.css?v=60" />
+<link rel="icon" href="assets/favicon/favicon.ico" />
+<link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#001B3D" />
+<meta name="msapplication-config" content="assets/favicon/browserconfig.xml" />
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#001B3D" media="(prefers-color-scheme: dark)" />
+</head>
+<body data-page="projects">
+<a class="skip-link" href="#main">Skip to main content</a>
+<div id="nav-mount"></div>
+
+<main id="main" class="page">
+  <header class="page__header">
+    <div class="page__header-top"><span>— 02 / Projects</span><a href="projects.html">← All projects</a></div>
+    <h1 class="page__title"><span>A small model</span><span><i>learns to teach.</i></span></h1>
+    <p class="page__lede">I fine-tuned a small language model to stand in for a GPT-4o tutor inside an immersive astronomy simulation. It matched the big model 85% of the time, and failed in ways worth knowing about.</p>
+  </header>
+
+  <section class="prose">
+    <p><strong>Where:</strong> Immersive Data Lab, UIUC · <strong>PI:</strong> Dr. Jina Kang · <strong>Context:</strong> the HoloOrbits augmented-reality astronomy simulation.</p>
+
+    <h2>The problem</h2>
+    <p>AI tutors in classrooms usually mean cloud APIs: every student question travels to a frontier model and back. That brings three problems schools care about deeply. Cost scales with every interaction. Latency breaks the flow of a live lesson. And student data, often from minors, leaves the building. A small language model that runs locally would solve all three, if it can actually teach.</p>
+
+    <h2>What I did</h2>
+    <p>HoloOrbits already had a working tutor agent powered by GPT-4o. I used that agent to generate synthetic training data, then fine-tuned Microsoft's Phi-3, a model small enough to run on modest hardware, to replicate the tutor's behavior. The evaluation compared the small model's responses against the GPT-4o reference across the tutoring scenarios the simulation covers.</p>
+
+    <h2>What we found</h2>
+    <p>The fine-tuned Phi-3 replicated 85% of the reference tutor's results. Just as important, its failures were not random noise: the model hallucinated in systematic, identifiable patterns. That distinction matters, because systematic failures can be anticipated, guarded against, and engineered around; random ones cannot.</p>
+
+    <h2>Why it matters</h2>
+    <p>Small models are a genuine path to affordable, private, low-latency AI in classrooms, but the interesting finding is about evaluation. Reporting a single replication score would have hidden the most useful result: knowing exactly how a model fails is what makes it deployable. If you evaluate an educational model, hunt for the failure structure, not just the success rate.</p>
+
+    <h2>Go deeper</h2>
+    <p>The HoloOrbits research line includes our study of joint attention in <a href="https://doi.org/10.1016/j.compedu.2024.105002" target="_blank" rel="noopener">Computers &amp; Education (2024) ↗</a>. For the fine-tuning work itself, reach out via the <a href="contact.html">contact page</a>.</p>
+  </section>
+</main>
+
+<div id="footer-mount"></div>
+<script src="script.js?v=60"></script>
+</body>
+</html>

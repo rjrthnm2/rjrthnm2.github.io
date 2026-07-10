@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<script>(function(){try{var t=localStorage.getItem("theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"night":"day");document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Thirty hours of teaching, translated — Robin Jephthah Rajarathinam</title>
+<meta name="description" content="An LLM pipeline with RAG dictionary context and human-in-the-loop review translated 36 video lectures into Spanish subtitles at METEOR 0.85+ and COMET 0.92+. A plain-language project story." />
+<link rel="canonical" href="https://rjrthnm2.github.io/project-machine-translation.html" />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Thirty hours of teaching, translated — Robin Jephthah Rajarathinam" />
+<meta property="og:description" content="An LLM pipeline with RAG dictionary context and human review translated 36 video lectures into Spanish subtitles at METEOR 0.85+ and COMET 0.92+." />
+<meta property="og:url" content="https://rjrthnm2.github.io/project-machine-translation.html" />
+<meta property="og:site_name" content="Robin Jephthah Rajarathinam" />
+<meta name="twitter:card" content="summary" />
+<link rel="stylesheet" href="styles.css?v=60" />
+<link rel="icon" href="assets/favicon/favicon.ico" />
+<link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#001B3D" />
+<meta name="msapplication-config" content="assets/favicon/browserconfig.xml" />
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#001B3D" media="(prefers-color-scheme: dark)" />
+</head>
+<body data-page="projects">
+<a class="skip-link" href="#main">Skip to main content</a>
+<div id="nav-mount"></div>
+
+<main id="main" class="page">
+  <header class="page__header">
+    <div class="page__header-top"><span>— 02 / Projects</span><a href="projects.html">← All projects</a></div>
+    <h1 class="page__title"><span>Thirty hours of teaching,</span><span><i>translated.</i></span></h1>
+    <p class="page__lede">36 video lectures, each 50 minutes long, translated from English into Spanish subtitles by an LLM pipeline with human reviewers in the loop. Final quality: METEOR above 0.85, COMET above 0.92.</p>
+  </header>
+
+  <section class="prose">
+    <p><strong>Where:</strong> The Vineyard Church, Urbana · <strong>PI:</strong> Daniel Goulet · <strong>When:</strong> Aug 2024 to May 2025.</p>
+
+    <h2>The problem</h2>
+    <p>The church had a library of 36 recorded lectures, about thirty hours of teaching, that its Spanish-speaking members could not use. Professional subtitle translation at that scale was out of budget, and off-the-shelf machine translation kept stumbling in the same places: domain vocabulary, names, and phrases whose established Spanish renderings a generic model has no way to know.</p>
+
+    <h2>What I did</h2>
+    <p>I built an LLM translation pipeline with four pieces doing the heavy lifting. A RAG layer retrieved entries from a curated dictionary, so domain terms were translated consistently instead of creatively. State history carried context across segments, keeping terminology stable within and across lectures. An expert-inspired system prompt encoded how a professional subtitle translator actually works. And structured output kept every response in valid subtitle format, timestamps intact. Human reviewers checked each batch, and their corrections fed back into the next iteration of the pipeline.</p>
+
+    <h2>What we found</h2>
+    <p>The finished subtitles scored METEOR at or above 0.85 and COMET at or above 0.92, quality that generic translation was not reaching on this material. The human-in-the-loop design meant the pipeline improved with every batch instead of repeating the same mistakes 36 times.</p>
+
+    <h2>Why it matters</h2>
+    <p>This is the pattern I care about most: AI applied to the people adoption usually leaves behind. A small community with no ML budget got thirty hours of teaching in its own language, and the recipe, a curated lexicon plus RAG plus structured output plus human review, transfers to any organization with domain-specific language and more content than money.</p>
+
+    <h2>Go deeper</h2>
+    <p>This was applied work rather than a paper, so the details live in the pipeline itself. If you are curious about the architecture or want to adapt the recipe, <a href="contact.html">get in touch</a>.</p>
+  </section>
+</main>
+
+<div id="footer-mount"></div>
+<script src="script.js?v=60"></script>
+</body>
+</html>

@@ -761,7 +761,7 @@ body[data-bg="off"] { --aurora-opacity: 0; }
 }
 .home-nav__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr); /* 4 cards → 2×2 */
   gap: 0;
   border-top: 1px solid var(--gray-300);
 }

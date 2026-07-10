@@ -25,6 +25,7 @@
   </a>
   <nav class="nav__links" aria-label="Primary">
     <a href="index.html"          data-page="home">Home<i></i></a>
+    <a href="projects.html"       data-page="projects">Projects<i></i></a>
     <a href="publications.html"   data-page="publications">Publications<i></i></a>
     <a href="cv.html"             data-page="cv">CV<i></i></a>
     <a href="contact.html"        data-page="contact">Contact<i></i></a>
@@ -134,6 +135,7 @@
       <div class="footer__col footer__col--site">
         <span class="t-meta">Site</span>
         <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
         <a href="publications.html">Publications</a>
         <a href="cv.html">CV</a>
         <a href="contact.html">Contact</a>

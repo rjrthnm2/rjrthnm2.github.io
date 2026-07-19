@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<script>(function(){try{var t=localStorage.getItem("theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"night":"day");document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HoloOrbits: a classroom in orbit — Robin Jephthah Rajarathinam</title>
+<meta name="description" content="Two studies from an immersive astronomy simulation: how a 360-degree camera transformed what classroom analytics can see, and how a small language model learned to give tutoring hints." />
+<link rel="canonical" href="https://rjrthnm2.github.io/project-holoorbits.html" />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="HoloOrbits: a classroom in orbit — Robin Jephthah Rajarathinam" />
+<meta property="og:description" content="Two studies from an immersive astronomy simulation: a 360-degree camera that transformed classroom analytics, and a small language model that learned to tutor." />
+<meta property="og:url" content="https://rjrthnm2.github.io/project-holoorbits.html" />
+<meta property="og:image" content="https://rjrthnm2.github.io/assets/projects/holoorbits-measure-mode.webp" />
+<meta property="og:site_name" content="Robin Jephthah Rajarathinam" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="HoloOrbits: a classroom in orbit — Robin Jephthah Rajarathinam" />
+<meta name="twitter:description" content="Two studies from an immersive astronomy simulation: a 360-degree camera that transformed classroom analytics, and a small language model that learned to tutor." />
+<meta name="twitter:image" content="https://rjrthnm2.github.io/assets/projects/holoorbits-measure-mode.webp" />
+<link rel="stylesheet" href="styles.css?v=61" />
+<link rel="icon" href="assets/favicon/favicon.ico" />
+<link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#001B3D" />
+<meta name="msapplication-config" content="assets/favicon/browserconfig.xml" />
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#001B3D" media="(prefers-color-scheme: dark)" />
+</head>
+<body data-page="projects">
+<a class="skip-link" href="#main">Skip to main content</a>
+<div id="nav-mount"></div>
+
+<main id="main" class="page">
+  <header class="page__header">
+    <div class="page__header-top"><span>— 02 / Projects</span><a href="projects.html">← All projects</a></div>
+    <h1 class="page__title"><span>HoloOrbits:</span><span><i>a classroom in orbit.</i></span></h1>
+    <p class="page__lede">Middle schoolers prove Mars moves in an ellipse inside an immersive simulation. Around it, two studies: a camera that changed what classroom analytics can see, and a small language model that learned to tutor.</p>
+  </header>
+
+  <section class="prose prose--article">
+    <p class="article-byline"><b>Immersive Data Lab, UIUC</b> · PI: Dr. Jina Kang · with Chris Palaguachi and Mehmet Arif Demirtaş · 2022 to 2025</p>
+
+    <div class="article-key">
+      <span class="t-meta">The short version</span>
+      <p>Putting a 360-degree camera at the center of the group's table, instead of a regular camera on the wall, raised the share of analyzable facial frames from 5% to 33%. And a 3.8-billion-parameter language model, fine-tuned in six minutes on 65 curated examples, gave tutoring hints close to a GPT-4o baseline, with failure modes we could name and fix.</p>
+    </div>
+
+    <p>HoloOrbits is a web-based immersive simulation built at the Immersive Data Lab. Students explore a newly discovered exoplanetary system and gather their own evidence that orbits are elliptical: they select celestial objects, send probes to measure distances, and test whether the sum of distances to the two foci stays constant, which is Kepler's first law discovered by hand. The simulation is the shared world behind both studies on this page.</p>
+
+    <figure class="article-fig">
+      <img src="assets/projects/holoorbits-measure-mode.webp" alt="HoloOrbits measure mode: an elliptical orbit around a red dwarf star with a probe measuring the distance between the star and an exoplanet, and a distance log panel listing measured pairs." width="1600" height="902" loading="lazy" />
+      <figcaption><b>HoloOrbits, measure mode.</b> Students send a probe to measure distances between objects in the system, building the evidence that the orbit is an ellipse.</figcaption>
+    </figure>
+
+    <span class="article-kicker">Part 1 · The camera</span>
+    <h2>Seeing the whole classroom</h2>
+    <p>To study how students collaborate around HoloOrbits, you need to see them. Faces carry engagement, posture carries attention, and gesture carries participation. The standard approach is a camera on a tripod at the edge of the room, and it has a terrible view: students sit with their backs turned, lean over laptops, and block one another constantly. Whatever the camera misses, every model downstream misses too, silently.</p>
+    <p>So we changed where the camera sits. One group of four students worked with a 360-degree camera placed at the center of their table, where everyone faces inward toward the lens. Another group was recorded the traditional way, a GoPro on a tripod angled from the corner. We ran identical pipelines over both recordings, OpenFace for facial features and OpenPose for body keypoints, and compared what each view actually captured.</p>
+
+    <figure class="article-fig">
+      <img src="assets/projects/camera-classroom-layout.webp" alt="Schematic of the classroom: one group of four students recorded with a GoPro 360 at the table center, other groups recorded with a tripod-mounted GoPro, two groups with no data collected." width="763" height="608" loading="lazy" />
+      <figcaption><b>The setup.</b> One group's video came from a 360-degree camera at the center of the table; the comparison group was recorded from a tripod at the room's edge.</figcaption>
+    </figure>
+
+    <div class="pullquote">
+      <p>The face view produced high-quality facial frames 33% of the time. The wall camera managed 5%.</p>
+    </div>
+
+    <p>The numbers were not close. From the 360 camera's face view, 33.17% of frames were high-quality enough for reliable facial analysis (39,026 frames). The traditional view yielded 5.16%. For body keypoints the gap was starker still: 14.25% high-completeness frames against 0.18%. The gain came from geometry, not algorithms. A camera in the middle of a circle of people sees faces a wall camera never will.</p>
+
+    <figure class="article-fig">
+      <img src="assets/projects/camera-confidence-histograms.svg" alt="Three histograms of facial-detection confidence for traditional view, top-down view, and face view. The face view has by far the most frames at high confidence values." loading="lazy" />
+      <figcaption><b>Detection confidence by camera view.</b> The 360 camera's face view (right) concentrates frames at high confidence; the traditional view piles up near zero.</figcaption>
+    </figure>
+
+    <p>The honest caveats are in the paper: this was two groups in one classroom session, fisheye distortion broke the top-down view, and OpenFace and OpenPose were never trained on inverted faces, so students in the lower half of the 360 frame suffered. But the practical lesson holds. In multimodal learning analytics, everyone reaches for a better model. Data quality is upstream of every model, and a camera placement decision produced a bigger improvement than any algorithmic tweak we could have made.</p>
+    <p>The short-paper version of this work received a best short paper honorable mention at EDM 2024; the full study appeared in the Journal of Educational Data Mining in 2025.</p>
+
+    <span class="article-kicker">Part 2 · The tutor</span>
+    <h2>A small model learns to teach</h2>
+    <p>Students inside HoloOrbits can ask Nova, an AI peer, for help. Nova's job is metacognitive scaffolding: clarify the task, nudge the thinking, never hand over the answer. The first Nova ran on GPT-4o, and that raises the three questions every school asks about cloud AI. What does it cost at scale? What happens to the latency mid-lesson? And where does student data, often from minors, actually go?</p>
+    <p>With Mehmet Arif Demirtaş, I tested whether a small language model could take over. We built the GPT-4o version of Nova first, with a carefully engineered system prompt: the agent's peer-like role, the simulation's modes and tasks, a feedback framework drawn from the learning-sciences literature, and a strict XML output format that separates the model's chain-of-thought reasoning from the hint a student actually sees.</p>
+    <p>Then we distilled it. Two LLMs generated candidate student questions; we manually screened 100 of them and kept the plausible ones, 65 queries in the final set, each paired with Nova's reasoning and hint. On that small dataset we fine-tuned Microsoft's Phi-3-Mini, a 3.8-billion-parameter model small enough to run locally, using parameter-efficient fine-tuning on NCSA Delta. Training took about six minutes.</p>
+
+    <figure class="article-fig">
+      <img src="assets/projects/phi3-eval-loss.webp" alt="Validation loss curve during fine-tuning: loss decreases to a minimum around step 24, then steadily rises, indicating overfitting." width="1400" height="400" loading="lazy" />
+      <figcaption><b>Validation loss during fine-tuning.</b> The curve bottoms out around step 24 and then climbs: the model begins memorizing its 58 training examples. We shipped the checkpoint from the bottom of the curve.</figcaption>
+    </figure>
+
+    <p>On most validation queries, the fine-tuned model's hints were close matches for the GPT-4o originals: same pedagogical restraint, same structure, correct astronomy. The interesting part is how it failed.</p>
+
+    <div class="pullquote">
+      <p>When the small model broke its output format, the content went off the rails: one astronomy hint drifted into building a blockchain in Haskell.</p>
+    </div>
+
+    <p>The failures were systematic, not random. When the model obeyed the XML format, the hints were good. When it lost the format, it also lost the plot, wandering into leftover pretraining content. That regularity is the finding: a failure mode you can name is a failure mode you can detect, guard against, and retrain away with a larger dataset. A single accuracy score would have hidden all of it.</p>
+    <p>The takeaways travel well beyond astronomy: fine-tuning works even on tiny datasets when the task is well-defined, structured output formats double as a quality signal, and small local models are a credible path to affordable, private classroom AI.</p>
+
+    <span class="article-kicker">Coda</span>
+    <h2>Go deeper</h2>
+    <ul class="prose__list">
+      <li><strong>The camera study, in full:</strong> <a href="https://doi.org/10.5281/zenodo.14966499" target="_blank" rel="noopener">Journal of Educational Data Mining (2025) ↗</a>, or the award-winning <a href="https://educationaldatamining.org/edm2024/proceedings/2024.EDM-short-papers.56/index.html" target="_blank" rel="noopener">EDM 2024 short paper ↗</a>.</li>
+      <li><strong>More HoloOrbits research:</strong> our study of joint attention in <a href="https://doi.org/10.1016/j.compedu.2024.105002" target="_blank" rel="noopener">Computers &amp; Education (2024) ↗</a>.</li>
+      <li><strong>Curious about the pipeline or the fine-tuning recipe?</strong> <a href="contact.html">Get in touch</a>.</li>
+    </ul>
+
+    <p class="prose__updated">Fine-tuning compute supported by NSF ACCESS allocation SEE240012 on NCSA Delta.</p>
+  </section>
+</main>
+
+<div id="footer-mount"></div>
+<script src="script.js?v=61"></script>
+</body>
+</html>

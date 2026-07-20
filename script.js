@@ -432,6 +432,31 @@
     }
   }
 
+  /* ---------- TITLE FIT ----------
+     .page__title--fit shrinks its font until every line-span fits on
+     one line, so long titles stay exactly two lines at any width. */
+  const fitTitles = $$('.page__title--fit');
+  if (fitTitles.length) {
+    const fit = () => {
+      fitTitles.forEach((t) => {
+        t.style.fontSize = '';
+        let size = parseFloat(getComputedStyle(t).fontSize);
+        const spans = $$('span:not(.sr-only)', t);
+        // nowrap set here (not in CSS) so a no-JS visit wraps instead of clipping
+        spans.forEach((s) => { s.style.whiteSpace = 'nowrap'; });
+        const over = () => spans.some((s) => s.scrollWidth > t.clientWidth + 1);
+        let guard = 60;
+        while (over() && size > 24 && guard--) {
+          size -= 2;
+          t.style.fontSize = size + 'px';
+        }
+      });
+    };
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+    else fit();
+    window.addEventListener('resize', fit, { passive: true });
+  }
+
   /* ---------- LANDING CLOCK ---------- */
   const lTime = $('#landingTime');
   if (lTime) {

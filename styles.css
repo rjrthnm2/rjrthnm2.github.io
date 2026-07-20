@@ -2685,19 +2685,25 @@ section.cv[id] { scroll-margin-top: var(--cv-section-offset, 170px); }
 [data-theme="night"] .article-key p { color: var(--ink) !important; }
 
 /* ============= PROJECT ARTICLE — width, breakouts, nav ============= */
-.prose--article { max-width: 860px; font-size: 18px; }
-.prose--article .article-fig,
-.prose--article .article-key {
-  width: min(1080px, calc(100vw - 2 * var(--pad)));
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-}
-@media (max-width: 1200px) {
-  .prose--article .article-fig,
-  .prose--article .article-key { width: 100%; left: 0; transform: none; }
-}
+/* Container matches the page header (var(--max)) so left edges align;
+   paragraphs cap at a readable measure, figures and callouts span full width. */
+.prose--article { max-width: var(--max); font-size: 18px; }
+.prose--article p:not(.article-byline),
+.prose--article .prose__list { max-width: 76ch; }
+.prose--article .article-key p { max-width: none; }
+.prose--article .pullquote { max-width: 90ch; }
 .prose--article > div[id] { scroll-margin-top: var(--cv-section-offset, 130px); }
+
+/* Sticky-bar project label sits with the jump chips */
+.cv-chips__label {
+  display: inline-flex; align-items: center;
+  padding: 9px 14px 9px 0; min-height: 38px;
+  font-family: var(--font-display);
+  font-style: italic; font-weight: 700;
+  font-size: 17px; letter-spacing: 0;
+  color: var(--brand-navy);
+}
+[data-theme="night"] .cv-chips__label { color: var(--ink); }
 
 /* Internal-link arrows on the projects index nudge right, not up-right */
 [data-page="projects"] .pub:hover .pub__arrow { transform: translateX(6px); }

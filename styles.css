@@ -2683,3 +2683,21 @@ section.cv[id] { scroll-margin-top: var(--cv-section-offset, 170px); }
 [data-theme="night"] .article-fig figcaption { color: var(--ink-2); }
 [data-theme="night"] .article-key { background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.12); border-top-color: var(--brand-gold); }
 [data-theme="night"] .article-key p { color: var(--ink) !important; }
+
+/* ============= PROJECT ARTICLE — width, breakouts, nav ============= */
+.prose--article { max-width: 860px; font-size: 18px; }
+.prose--article .article-fig,
+.prose--article .article-key {
+  width: min(1080px, calc(100vw - 2 * var(--pad)));
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@media (max-width: 1200px) {
+  .prose--article .article-fig,
+  .prose--article .article-key { width: 100%; left: 0; transform: none; }
+}
+.prose--article > div[id] { scroll-margin-top: var(--cv-section-offset, 130px); }
+
+/* Internal-link arrows on the projects index nudge right, not up-right */
+[data-page="projects"] .pub:hover .pub__arrow { transform: translateX(6px); }

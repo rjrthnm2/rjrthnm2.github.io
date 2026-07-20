@@ -4,18 +4,18 @@
 <meta charset="utf-8" />
 <script>(function(){try{var t=localStorage.getItem("theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"night":"day");document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HoloOrbits: a classroom in orbit — Robin Jephthah Rajarathinam</title>
+<title>HoloOrbits: an immersive lab for Kepler's laws — Robin Jephthah Rajarathinam</title>
 <meta name="description" content="Two studies from an immersive astronomy simulation: how a 360-degree camera transformed what classroom analytics can see, and how a small language model learned to give tutoring hints." />
 <link rel="canonical" href="https://rjrthnm2.github.io/project-holoorbits.html" />
 <meta name="robots" content="index, follow" />
 <meta property="og:type" content="article" />
-<meta property="og:title" content="HoloOrbits: a classroom in orbit — Robin Jephthah Rajarathinam" />
+<meta property="og:title" content="HoloOrbits: an immersive lab for Kepler's laws — Robin Jephthah Rajarathinam" />
 <meta property="og:description" content="Two studies from an immersive astronomy simulation: a 360-degree camera that transformed classroom analytics, and a small language model that learned to tutor." />
 <meta property="og:url" content="https://rjrthnm2.github.io/project-holoorbits.html" />
 <meta property="og:image" content="https://rjrthnm2.github.io/assets/projects/holoorbits-measure-mode.webp" />
 <meta property="og:site_name" content="Robin Jephthah Rajarathinam" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="HoloOrbits: a classroom in orbit — Robin Jephthah Rajarathinam" />
+<meta name="twitter:title" content="HoloOrbits: an immersive lab for Kepler's laws — Robin Jephthah Rajarathinam" />
 <meta name="twitter:description" content="Two studies from an immersive astronomy simulation: a 360-degree camera that transformed classroom analytics, and a small language model that learned to tutor." />
 <meta name="twitter:image" content="https://rjrthnm2.github.io/assets/projects/holoorbits-measure-mode.webp" />
 <link rel="stylesheet" href="styles.css?v=61" />
@@ -32,11 +32,21 @@
 <main id="main" class="page">
   <header class="page__header">
     <div class="page__header-top"><span>— 02 / Projects</span><a href="projects.html">← All projects</a></div>
-    <h1 class="page__title"><span>HoloOrbits:</span><span><i>a classroom in orbit.</i></span></h1>
+    <h1 class="page__title"><span>HoloOrbits:</span><span><i>an immersive lab for Kepler's laws.</i></span></h1>
     <p class="page__lede">Middle schoolers prove Mars moves in an ellipse inside an immersive simulation. Around it, two studies: a camera that changed what classroom analytics can see, and a small language model that learned to tutor.</p>
   </header>
 
+  <nav class="cv-chips" aria-label="Jump to section">
+    <ul class="cv-chips__list">
+      <li><a class="cv-chips__chip" href="#overview" data-target="overview">Overview</a></li>
+      <li><a class="cv-chips__chip" href="#camera" data-target="camera">The camera</a></li>
+      <li><a class="cv-chips__chip" href="#tutor" data-target="tutor">The tutor</a></li>
+      <li><a class="cv-chips__chip" href="#links" data-target="links">Papers &amp; links</a></li>
+    </ul>
+  </nav>
+
   <section class="prose prose--article">
+    <div id="overview">
     <p class="article-byline"><b>Immersive Data Lab, UIUC</b> · PI: Dr. Jina Kang · with Chris Palaguachi and Mehmet Arif Demirtaş · 2022 to 2025</p>
 
     <div class="article-key">
@@ -50,7 +60,9 @@
       <img src="assets/projects/holoorbits-measure-mode.webp" alt="HoloOrbits measure mode: an elliptical orbit around a red dwarf star with a probe measuring the distance between the star and an exoplanet, and a distance log panel listing measured pairs." width="1600" height="902" loading="lazy" />
       <figcaption><b>HoloOrbits, measure mode.</b> Students send a probe to measure distances between objects in the system, building the evidence that the orbit is an ellipse.</figcaption>
     </figure>
+    </div>
 
+    <div id="camera">
     <span class="article-kicker">Part 1 · The camera</span>
     <h2>Seeing the whole classroom</h2>
     <p>To study how students collaborate around HoloOrbits, you need to see them. Faces carry engagement, posture carries attention, and gesture carries participation. The standard approach is a camera on a tripod at the edge of the room, and it has a terrible view: students sit with their backs turned, lean over laptops, and block one another constantly. Whatever the camera misses, every model downstream misses too, silently.</p>
@@ -74,7 +86,9 @@
 
     <p>The honest caveats are in the paper: this was two groups in one classroom session, fisheye distortion broke the top-down view, and OpenFace and OpenPose were never trained on inverted faces, so students in the lower half of the 360 frame suffered. But the practical lesson holds. In multimodal learning analytics, everyone reaches for a better model. Data quality is upstream of every model, and a camera placement decision produced a bigger improvement than any algorithmic tweak we could have made.</p>
     <p>The short-paper version of this work received a best short paper honorable mention at EDM 2024; the full study appeared in the Journal of Educational Data Mining in 2025.</p>
+    </div>
 
+    <div id="tutor">
     <span class="article-kicker">Part 2 · The tutor</span>
     <h2>A small model learns to teach</h2>
     <p>Students inside HoloOrbits can ask Nova, an AI peer, for help. Nova's job is metacognitive scaffolding: clarify the task, nudge the thinking, never hand over the answer. The first Nova ran on GPT-4o, and that raises the three questions every school asks about cloud AI. What does it cost at scale? What happens to the latency mid-lesson? And where does student data, often from minors, actually go?</p>
@@ -94,9 +108,10 @@
 
     <p>The failures were systematic, not random. When the model obeyed the XML format, the hints were good. When it lost the format, it also lost the plot, wandering into leftover pretraining content. That regularity is the finding: a failure mode you can name is a failure mode you can detect, guard against, and retrain away with a larger dataset. A single accuracy score would have hidden all of it.</p>
     <p>The takeaways travel well beyond astronomy: fine-tuning works even on tiny datasets when the task is well-defined, structured output formats double as a quality signal, and small local models are a credible path to affordable, private classroom AI.</p>
+    </div>
 
-    <span class="article-kicker">Coda</span>
-    <h2>Go deeper</h2>
+    <div id="links">
+    <h2>Papers &amp; links</h2>
     <ul class="prose__list">
       <li><strong>The camera study, in full:</strong> <a href="https://doi.org/10.5281/zenodo.14966499" target="_blank" rel="noopener">Journal of Educational Data Mining (2025) ↗</a>, or the award-winning <a href="https://educationaldatamining.org/edm2024/proceedings/2024.EDM-short-papers.56/index.html" target="_blank" rel="noopener">EDM 2024 short paper ↗</a>.</li>
       <li><strong>More HoloOrbits research:</strong> our study of joint attention in <a href="https://doi.org/10.1016/j.compedu.2024.105002" target="_blank" rel="noopener">Computers &amp; Education (2024) ↗</a>.</li>
@@ -104,6 +119,7 @@
     </ul>
 
     <p class="prose__updated">Fine-tuning compute supported by NSF ACCESS allocation SEE240012 on NCSA Delta.</p>
+    </div>
   </section>
 </main>
 
